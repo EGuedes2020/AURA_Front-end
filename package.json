@@ -14,7 +14,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "formmat": "prettier --write .",
+    "format": "prettier --write .",
     "test": "jest",
     "eject": "react-scripts eject",
     "lint": "eslint src"
