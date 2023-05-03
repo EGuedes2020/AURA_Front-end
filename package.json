@@ -14,10 +14,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "format": "prettier --write .",
-    "test": "jest",
     "eject": "react-scripts eject",
-    "lint": "eslint src"
+    "format": "prettier --write .",
+    "lint": "eslint src",
+    "test": "jest"
   },
   "browserslist": {
     "production": [
