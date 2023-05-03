@@ -34,7 +34,10 @@ const AppRotas = () => (
 
     <Route path="/" element={<Temporada />}></Route>
     <Route path="/Dados" element={<Dados />}></Route>
-    <Route path="/Preencher_Dados_Mes" element={<Preencher_Dados_Mes />}></Route>
+    <Route
+      path="/Preencher_Dados_Mes"
+      element={<Preencher_Dados_Mes />}
+    ></Route>
 
     <Route path="/Dispositivos" element={<Dispositivos />}></Route>
     <Route path="/Avisos_Ativos" element={<Avisos_Ativos />}></Route>
