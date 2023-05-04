@@ -1,5 +1,5 @@
 // import React, { lazy } from "react";
-import { Routes, Route, redirect } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 import Login from "./Pages/Login";
 
@@ -32,36 +32,40 @@ import PageNotFound from "./Pages/PageNotFound";
 // const Sugestoes = lazy(() => import("./Pages/Sugestoes/Sugestoes"));
 // const Trabalhadores = lazy(() => import("./Pages/Trabalhadores/Trabalhadores"));
 
-const isAuthenticated = false; // Replace this with your authentication state
+const AppRotas = () => {
 
-const AppRotas = () => (
-  <Routes>
-    <Route path="/Login" element={<Login />}></Route>
+  const isAuthenticated = true; // Replace this with your authentication state
 
-    <Route path="/" element={isAuthenticated ? <Temporada /> : redirect("/Login")}></Route>
-    <Route path="/Dados" element={<Dados />}></Route>
-    <Route
-      path="/PreencherDadosMes"
-      element={<PreencherDadosMes />}
-    ></Route>
+  return (
+    <Routes>
+      <Route path="/Login" element={isAuthenticated ? <Navigate to="/" /> : <Login /> }></Route>
+  
+      <Route
+        path="/"
+        element={isAuthenticated ? <Temporada /> : <Navigate to="/Login" />}
+      ></Route>
+      <Route path="/Dados" element={isAuthenticated ? <Dados /> : <Navigate to="/Login" />}></Route>
+      <Route path="/PreencherDadosMes" element={isAuthenticated ? <PreencherDadosMes /> : <Navigate to="/Login" />}></Route>
+  
+      <Route path="/Dispositivos" element={isAuthenticated ? <Dispositivos /> : <Navigate to="/Login" />}></Route>
+      <Route path="/AvisosAtivos" element={isAuthenticated ? <AvisosAtivos /> : <Navigate to="/Login" />}></Route>
+  
+      <Route path="/Leaderboard" element={isAuthenticated ? <Leaderboard /> : <Navigate to="/Login" />}></Route>
+      <Route path="/Instituicao" element={isAuthenticated ? <Instituicao /> : <Navigate to="/Login" />}></Route>
+  
+      <Route path="/Sugestoes" element={isAuthenticated ? <Sugestoes /> : <Navigate to="/Login" />}></Route>
+      <Route path="/Sugestao" element={isAuthenticated ? <Sugestao /> : <Navigate to="/Login" />}></Route>
+      <Route path="/CriarSugestao" element={isAuthenticated ? <CriarSugestao /> : <Navigate to="/Login" />}></Route>
+  
+      <Route path="/Trabalhadores" element={isAuthenticated ? <Trabalhadores /> : <Navigate to="/Login" />}></Route>
+      <Route path="/Trabalhador" element={isAuthenticated ? <Trabalhador /> : <Navigate to="/Login" />}></Route>
+  
+      <Route path="/Definicoes" element={isAuthenticated ? <Definicoes /> : <Navigate to="/Login" />}></Route>
+  
+      <Route path="*" element={<PageNotFound />}></Route>
+    </Routes>
+  );
+}
 
-    <Route path="/Dispositivos" element={<Dispositivos />}></Route>
-    <Route path="/AvisosAtivos" element={<AvisosAtivos />}></Route>
-
-    <Route path="/Leaderboard" element={<Leaderboard />}></Route>
-    <Route path="/Instituicao" element={<Instituicao />}></Route>
-
-    <Route path="/Sugestoes" element={<Sugestoes />}></Route>
-    <Route path="/Sugestao" element={<Sugestao />}></Route>
-    <Route path="/CriarSugestao" element={<CriarSugestao />}></Route>
-
-    <Route path="/Trabalhadores" element={<Trabalhadores />}></Route>
-    <Route path="/Trabalhador" element={<Trabalhador />}></Route>
-
-    <Route path="/Definicoes" element={<Definicoes />}></Route>
-
-    <Route path="*" element={<PageNotFound />}></Route>
-  </Routes>
-);
 
 export default AppRotas;
