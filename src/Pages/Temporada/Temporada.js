@@ -1,5 +1,5 @@
 function Temporada() {
-  return <div></div>;
+  return <div><h1>Temporada</h1></div>;
 }
 
 export default Temporada;

@@ -1,53 +1,59 @@
-import React, { lazy } from "react";
-import { Routes, Route } from "react-router-dom";
+// import React, { lazy } from "react";
+import { Routes, Route, redirect } from "react-router-dom";
 
 import Login from "./Pages/Login";
 
 import Temporada from "./Pages/Temporada/Temporada";
-import Dados from "./pages/Temporada/Dados";
-import Preencher_Dados_Mes from "./pages/Temporada/Preencher_Dados_Mes";
+import Dados from "./Pages/Temporada/Dados";
+import PreencherDadosMes from "./Pages/Temporada/PreencherDadosMes";
 
 // Dispositivos
-import Avisos_Ativos from "./pages/Dispositivos/Avisos_Ativos";
+import Dispositivos from "./Pages/Dispositivos/Dispositivos";
+import AvisosAtivos from "./Pages/Dispositivos/AvisosAtivos";
 
 // Leaderboard
-import Instituicao from "./pages/Leaderboard/Instituicao";
+import Leaderboard from "./Pages/Leaderboard/Leaderboard";
+import Instituicao from "./Pages/Leaderboard/Instituicao";
 
 // Sugestoes
-import Sugestao from "./pages/Sugestoes/Sugestao";
-import Criar_Sugestao from "./pages/Sugestoes/Criar_Sugestao";
+import Sugestoes from "./Pages/Sugestoes/Sugestoes";
+import Sugestao from "./Pages/Sugestoes/Sugestao";
+import CriarSugestao from "./Pages/Sugestoes/CriarSugestao";
 
 // Trabalhadores
-import Trabalhador from "./pages/Trabalhadores/Trabalhador";
+import Trabalhadores from "./Pages/Trabalhadores/Trabalhadores";
+import Trabalhador from "./Pages/Trabalhadores/Trabalhador";
 
 import Definicoes from "./Pages/Definicoes";
 import PageNotFound from "./Pages/PageNotFound";
 
-const Dispositivos = lazy(() => import("./Pages/Dispotivos/Dispotivos"));
-const Leaderboard = lazy(() => import("./Pages/Leaderboard/Leaderboard"));
-const Sugestoes = lazy(() => import("./Pages/Sugestoes/Sugestoes"));
-const Trabalhadores = lazy(() => import("./Pages/Trabalhadores/Trabalhadores"));
+// const Dispositivos = lazy(() => import("./Pages/Dispositivos/Dispositivos"));
+// const Leaderboard = lazy(() => import("./Pages/Leaderboard/Leaderboard"));
+// const Sugestoes = lazy(() => import("./Pages/Sugestoes/Sugestoes"));
+// const Trabalhadores = lazy(() => import("./Pages/Trabalhadores/Trabalhadores"));
+
+const isAuthenticated = false; // Replace this with your authentication state
 
 const AppRotas = () => (
   <Routes>
     <Route path="/Login" element={<Login />}></Route>
 
-    <Route path="/" element={<Temporada />}></Route>
+    <Route path="/" element={isAuthenticated ? <Temporada /> : redirect("/Login")}></Route>
     <Route path="/Dados" element={<Dados />}></Route>
     <Route
-      path="/Preencher_Dados_Mes"
-      element={<Preencher_Dados_Mes />}
+      path="/PreencherDadosMes"
+      element={<PreencherDadosMes />}
     ></Route>
 
     <Route path="/Dispositivos" element={<Dispositivos />}></Route>
-    <Route path="/Avisos_Ativos" element={<Avisos_Ativos />}></Route>
+    <Route path="/AvisosAtivos" element={<AvisosAtivos />}></Route>
 
     <Route path="/Leaderboard" element={<Leaderboard />}></Route>
     <Route path="/Instituicao" element={<Instituicao />}></Route>
 
     <Route path="/Sugestoes" element={<Sugestoes />}></Route>
     <Route path="/Sugestao" element={<Sugestao />}></Route>
-    <Route path="/Criar_Sugestao" element={<Criar_Sugestao />}></Route>
+    <Route path="/CriarSugestao" element={<CriarSugestao />}></Route>
 
     <Route path="/Trabalhadores" element={<Trabalhadores />}></Route>
     <Route path="/Trabalhador" element={<Trabalhador />}></Route>
