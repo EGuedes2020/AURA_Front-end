@@ -1,5 +1,5 @@
 function Trabalhadores() {
-  return <div></div>;
+  return <div>Trabalhadores</div>;
 }
 
 export default Trabalhadores;

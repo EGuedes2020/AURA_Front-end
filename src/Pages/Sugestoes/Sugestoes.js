@@ -1,5 +1,5 @@
 function Sugestoes() {
-  return <div></div>;
+  return <div>Sugestoes</div>;
 }
 
 export default Sugestoes;

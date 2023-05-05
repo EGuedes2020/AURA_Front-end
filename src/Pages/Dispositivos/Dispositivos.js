@@ -1,5 +1,5 @@
 function Dispositivos() {
-  return <div></div>;
+  return <div>Dispositivos</div>;
 }
 
 export default Dispositivos;

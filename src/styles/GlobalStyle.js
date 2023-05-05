@@ -5,6 +5,8 @@ export default createGlobalStyle`
     
     // spacing
 
+    --main-spacing: 1rem;
+
     // border
 
     --border-card: 0.5rem;
@@ -32,6 +34,8 @@ export default createGlobalStyle`
     
     --color-links: #036B9F;
     --color-nav: #20495D;
+    --color-nav-selected: #365B6D;
+    --color-nav-stroke: #FCFCFC;
     --color-bg-blue: #023047;
     --color-card: #FCFCFC;
     --color-danger: #AE0B34;
