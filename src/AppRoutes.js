@@ -47,7 +47,17 @@ const AppRotas = () => {
       {/* Meter aqui algo que verifique qual o login role */}
       <Route
         path="/"
-        element={isAuthenticated ? (LoginRole === 1 ? <Temporada /> : <Avisos />)  : <Navigate to="/Login" />}
+        element={
+          isAuthenticated ? (
+            LoginRole === 1 ? (
+              <Temporada />
+            ) : (
+              <Avisos />
+            )
+          ) : (
+            <Navigate to="/Login" />
+          )
+        }
       ></Route>
       <Route
         path="/Temporada"

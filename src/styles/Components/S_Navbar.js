@@ -15,7 +15,7 @@ export const Nav = styled.nav`
   z-index: 2;
 
   a {
-    padding:1.2rem;
+    padding: 1.2rem;
     text-decoration: none;
     display: flex;
     align-items: center;
