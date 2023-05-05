@@ -17,26 +17,28 @@ function Navbar() {
 
   const [NavState, setNavState] = useState("0");
 
-  const location = useLocation().pathname;
+  // console.log(useLocation().pathname.split('/')[1].toLowerCase());
+
+  const location = useLocation().pathname.split("/")[1].toLowerCase();
 
   useEffect(() => {
     switch (location) {
-      case "/":
+      case "":
         setNavState("1");
         break;
-      case "/Temporada":
+      case "temporada":
         setNavState("2");
         break;
-      case "/Dispositivos":
+      case "dispositivos":
         setNavState("2");
         break;
-      case "/Leaderboard":
+      case "leaderboard":
         LoginRole === 1 ? setNavState("3") : setNavState("4");
         break;
-      case "/Sugestoes":
+      case "sugestoes":
         LoginRole === 1 ? setNavState("4") : setNavState("3");
         break;
-      case "/Trabalhadores":
+      case "trabalhadores":
         setNavState("5");
         break;
       default:
