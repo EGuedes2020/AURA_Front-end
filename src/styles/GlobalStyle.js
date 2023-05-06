@@ -2,10 +2,18 @@ import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
   :root {
+
+    -webkit-tap-highlight-color: transparent;
+
+    body{
+      background-color: var(--color-bg-blue);
+    }
     
     // spacing
 
     --main-spacing: 1rem;
+    --header-padding: var(--main-spacing);
+    --nav-top-border: 0.25rem;
 
     // border
 
@@ -39,6 +47,25 @@ export default createGlobalStyle`
     --color-bg-blue: #023047;
     --color-card: #FCFCFC;
     --color-danger: #AE0B34;
+
+    // Profile-header
+
+    --icon-profile-header: 2rem;
+
+    // Headings
+
+    --h1-font: var(--readex-pro) ;
+    --h1-size: 1.5rem;   
+    --h1-weight: var(--bold);
+    --h1-color: white;
+
+    h1{
+    font-family: var(--h1-font);
+    font-size: var(--h1-size);
+    font-weight: var(--h1-weight);
+    color: var(--h1-color);
+    line-height: var(--icon-profile-header);
+    }    
 
     // Settings
 

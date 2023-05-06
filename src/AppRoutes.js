@@ -44,7 +44,6 @@ const AppRotas = () => {
         path="/Login"
         element={isAuthenticated ? <Navigate to="/" /> : <Login />}
       ></Route>
-      {/* Meter aqui algo que verifique qual o login role */}
       <Route
         path="/"
         element={

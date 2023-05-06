@@ -24,8 +24,8 @@ export const Nav = styled.nav`
 
   a:nth-child(${(props) => props.navselected}) {
     background-color: var(--color-nav-selected);
-    border-top: 4px solid var(--color-nav-stroke);
-    padding: calc(1.2rem - 0.25rem) 1.2rem 1.2rem 1.2rem;
+    border-top: var(--nav-top-border) solid var(--color-nav-stroke);
+    padding: calc(1.2rem - var(--nav-top-border)) 1.2rem 1.2rem 1.2rem;
   }
 
   a:active {
