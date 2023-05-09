@@ -8,11 +8,13 @@ export const PCardSugestoes = styled.p`
   line-height: var(--p-card-sugestoes-line-height);
 
   overflow: hidden;
-  height: calc(var(--p-card-sugestoes-visible-lines) * var(--p-card-sugestoes-line-height));
+  height: calc(
+    var(--p-card-sugestoes-visible-lines) * var(--p-card-sugestoes-line-height)
+  );
   position: relative;
 
-  ::after{
-    content: '';
+  ::after {
+    content: "";
 
     position: absolute;
     bottom: 0;
@@ -20,8 +22,6 @@ export const PCardSugestoes = styled.p`
     height: var(--p-card-sugestoes-line-height);
     width: 75%;
 
-    background: linear-gradient(
-      90deg, transparent, white
-    );
+    background: linear-gradient(90deg, transparent, white);
   }
 `;
