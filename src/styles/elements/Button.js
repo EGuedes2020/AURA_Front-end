@@ -1,13 +1,23 @@
 import styled from "styled-components";
 
-export const C_btn_gerir_help_card = styled.button`
-  background-color: var(--color-bg-button);
+export const Btn = styled.button`
+  background-color: ${(props) =>
+    props.variant === "4"
+      ? "var(--color-bg-button-light)"
+      : "var(--color-bg-button)"};
   border-radius: var(--border-btn);
   border: none;
   padding: 0.5rem 1rem;
   font-family: var(--inter);
   font-weight: var(--bold);
   color: var(--color-text-button-primary);
-  font-size: var(--card-button-ajudar);
+  font-size: var(--btn-text-size);
+  text-transform: ${(props) =>
+    props.variant === "2"
+      ? "capitalize"
+      : props.variant === "4"
+      ? "capitalize"
+      : "uppercase"};
+  width: ${(props) => (props.variant === "3" ? "100%" : "max-content")};
   // height: min-content;
 `;

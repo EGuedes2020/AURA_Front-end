@@ -1,5 +1,7 @@
+import { Main } from "../../styles/Components/S_Main";
+
 function Trabalhadores() {
-  return <div>Trabalhadores</div>;
+  return <Main>Trabalhadores</Main>;
 }
 
 export default Trabalhadores;

@@ -41,7 +41,7 @@ function Header() {
 
   return (
     <HeaderNav>
-      <h1>{HeaderState}</h1>
+      <h5>{HeaderState}</h5>
       <span>
         <img src={ProfilePic} alt="fotografia_de_utilizador" />
       </span>

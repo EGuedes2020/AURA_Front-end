@@ -13,6 +13,7 @@ import NavTrabalhadoresIcon from "../Assets/Icons/Nav_Trabalhadores_icon";
 import { useEffect } from "react";
 
 function Navbar() {
+  const isAuthenticated = useSelector((state) => state.Login.isAuthenticated);
   const LoginRole = useSelector((state) => state.Login.loginRole);
 
   const [NavState, setNavState] = useState("0");
@@ -111,7 +112,7 @@ function Navbar() {
     </>
   );
 
-  return LoginRole === 1 ? NavAdmin : NavColaborador;
+  return isAuthenticated ? (LoginRole === 1 ? NavAdmin : NavColaborador) : null;
 }
 
 export default Navbar;

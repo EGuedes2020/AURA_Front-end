@@ -1,8 +1,10 @@
+import { Main } from "../../styles/Components/S_Main";
+
 function Temporada() {
   return (
-    <div>
+    <Main>
       <h1>Temporada</h1>
-    </div>
+    </Main>
   );
 }
 

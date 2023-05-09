@@ -35,7 +35,7 @@ import PageNotFound from "./Pages/PageNotFound";
 // const Trabalhadores = lazy(() => import("./Pages/Trabalhadores/Trabalhadores"));
 
 const AppRotas = () => {
-  const isAuthenticated = true; // Replace this with your authentication state
+  const isAuthenticated = useSelector((state) => state.Login.isAuthenticated);
   const LoginRole = useSelector((state) => state.Login.loginRole);
 
   return (

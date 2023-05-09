@@ -12,6 +12,7 @@ export default createGlobalStyle`
     // spacing
 
     --main-spacing: 1rem;
+    --main-bottom-spacing: 5rem;
     --header-padding: var(--main-spacing);
     --nav-top-border: 0.25rem;
 
@@ -32,6 +33,14 @@ export default createGlobalStyle`
     --semi-bold: 600;
     --bold: 700;
 
+    --btn-text-size: 0.875rem;
+    --overlineDefault-text-size: 0.625rem;
+    --overlineDefaultData-text-size: 1.25rem;
+    
+    --p-card-sugestoes-size: 0.875rem;
+    --p-card-sugestoes-line-height: 1.5rem;
+    --p-card-sugestoes-visible-lines: 6;
+
     // colors
 
     --color-text-black: #131313;
@@ -39,13 +48,17 @@ export default createGlobalStyle`
     --color-text-gray-light: #CCD6DA;
     --color-text-button-primary: #07362D;
     --color-bg-button: #18CCAC;
+    --color-bg-button-light: #FCFCFC;
     
     --color-links: #036B9F;
     --color-nav: #20495D;
     --color-nav-selected: #365B6D;
     --color-nav-stroke: #FCFCFC;
     --color-bg-blue: #023047;
-    --color-card: #FCFCFC;
+    --color-text-card-defaut: #FCFCFC;
+    --color-card-default: #20495D;
+    --color-text-card-sugestoes: #666666;
+    --color-card-sugestoes: #FCFCFC;
     --color-danger: #AE0B34;
 
     // Profile-header
@@ -54,34 +67,20 @@ export default createGlobalStyle`
 
     // Headings
 
-    --h1-font: var(--readex-pro) ;
-    --h1-size: 1.5rem;   
-    --h1-weight: var(--bold);
-    --h1-color: white;
-
-    h1{
-    font-family: var(--h1-font);
-    font-size: var(--h1-size);
-    font-weight: var(--h1-weight);
-    color: var(--h1-color);
+    h5{
+    font-family: var(--readex-pro);
+    font-size: 1.5rem;
+    font-weight: var(--bold);
+    color: white;
     line-height: var(--icon-profile-header);
-    }    
-
-    // Settings
-
-    --c_settings_img_size: 4rem;
-    --c_seetings_name_size: 1.2rem;
-    --c_seetings_role_size: 1rem;
+    }
     
-    --icon-settings-size: 1.5rem;
-    --button-text-size: 1rem;
-
-    --main-padding-settings: 1.4rem;
-  
-    
-    // charts
-    
-    --chart-gap: 1rem;
-    --chart-title: 1.2rem;
+    h6{
+    font-family: var(--readex-pro);
+    font-size: 1.25rem;
+    font-weight: var(--bold);
+    color: #131313;
+    line-height: var(--icon-profile-header);
+    }  
   }
 `;

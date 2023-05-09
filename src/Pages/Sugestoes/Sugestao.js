@@ -1,5 +1,7 @@
+import { Main } from "../../styles/Components/S_Main";
+
 function Sugestao() {
-  return <div></div>;
+  return <Main>sdf</Main>;
 }
 
 export default Sugestao;
