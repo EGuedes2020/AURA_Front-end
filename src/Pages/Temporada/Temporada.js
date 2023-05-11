@@ -10,6 +10,6 @@ function Temporada() {
       <ChartTemporadaContainer></ChartTemporadaContainer>
     </Main>
   );
-}  
+}
 
 export default Temporada;

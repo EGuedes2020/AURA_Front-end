@@ -29,8 +29,8 @@ export const ListDispositivos = styled.section`
 
   border-bottom: ${(props) =>
     props.variant === "Header" ? "none" : "2px solid var(--color-bg-blue)"};
-  
-  :nth-last-child(1){
+
+  :nth-last-child(1) {
     border-bottom: none;
   }
 
