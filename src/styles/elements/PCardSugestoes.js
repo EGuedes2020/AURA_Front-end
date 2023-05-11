@@ -4,7 +4,7 @@ export const PCardSugestoes = styled.p`
   font-family: var(--inter);
   font-size: var(--p-card-sugestoes-size);
   font-weight: var(--regular);
-  color: var(--color-text-black);
+  color: var(--color-p-card-sugestoes);
   line-height: var(--p-card-sugestoes-line-height);
 
   overflow: hidden;

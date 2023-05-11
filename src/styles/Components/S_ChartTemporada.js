@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
-export const CardSugestoes = styled.section`
+export const ChartTemporada = styled.section`
   display: grid;
   gap: var(--main-spacing);
   grid-template-columns: 1fr;
 
-  background-color: var(--color-card-sugestoes);
+  //background-color: var(--color-card-sugestoes);
   border-radius: var(--border-card);
-  padding: 1rem;
+  //padding: var(--main-spacing);
 `;

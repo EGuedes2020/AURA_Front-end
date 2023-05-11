@@ -7,7 +7,7 @@ export const Btn = styled.button`
       : "var(--color-bg-button)"};
   border-radius: var(--border-btn);
   border: none;
-  padding: 0.5rem 1rem;
+  padding: ${(props) => (props.variant === "4" ? "0.75rem 1rem" : "1rem")};
   font-family: var(--inter);
   font-weight: var(--bold);
   color: var(--color-text-button-primary);

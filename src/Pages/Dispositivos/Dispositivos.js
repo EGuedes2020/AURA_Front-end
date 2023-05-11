@@ -5,6 +5,12 @@ import { Btn } from "../../styles/elements/Button";
 import { Overline } from "../../styles/elements/Overline";
 import { OverlineDefaultData } from "../../styles/elements/OverlineDefaultData";
 import { CardDefaultContainer } from "../../styles/Components/S_CardDefaultContainer";
+import {
+  ListDispositivosContainer,
+  ListDispositivos,
+} from "../../styles/Components/ListDispositivos";
+
+import RowListDispositivos from "../../Components/RowListDispositivos";
 
 // | Variants
 // - CardDefaultContainer: 1 || 2 (containers)
@@ -34,6 +40,31 @@ function Dispositivos() {
           <Btn variant="1"> ver detalhes </Btn>
         </CardDefaultSub2>
       </CardDefaultContainer>
+      <ListDispositivosContainer>
+        <ListDispositivos variant="Header">
+          <span>Divisão</span>
+          <span>Dispositivos</span>
+          <span>Total Avisos Temporada</span>
+        </ListDispositivos>
+        <RowListDispositivos
+          divisao="Cozinha"
+          piso="1"
+          dispositivos="34"
+          total_avisos="2"
+        ></RowListDispositivos>
+        <RowListDispositivos
+          divisao="Cozinha"
+          piso="1"
+          dispositivos="34"
+          total_avisos="2"
+        ></RowListDispositivos>
+        <RowListDispositivos
+          divisao="Cozinha"
+          piso="1"
+          dispositivos="34"
+          total_avisos="2"
+        ></RowListDispositivos>
+      </ListDispositivosContainer>
     </Main>
   );
 }
