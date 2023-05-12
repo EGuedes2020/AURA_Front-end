@@ -23,18 +23,24 @@ function Dispositivos() {
     <Main>
       <CardDefaultContainer variant="2">
         <CardDefault>
-          <Overline variant="Default"> Dispositivos </Overline>
+          <Overline textTranform="Default" variant="Default">
+            Dispositivos
+          </Overline>
           <OverlineDefaultData> 526389 </OverlineDefaultData>
         </CardDefault>
         <CardDefault>
-          <Overline variant="Default"> Divisões </Overline>
+          <Overline textTranform="Default" variant="Default">
+            Divisões
+          </Overline>
           <OverlineDefaultData> 7492 </OverlineDefaultData>
         </CardDefault>
       </CardDefaultContainer>
       <CardDefaultContainer variant="1">
         <CardDefaultSub2>
           <CardDefault variant="Sub">
-            <Overline variant="Default"> Avisos Ativos </Overline>
+            <Overline textTranform="Default" variant="Default">
+              Avisos Ativos
+            </Overline>
             <OverlineDefaultData> 621 </OverlineDefaultData>
           </CardDefault>
           <Btn variant="1"> ver detalhes </Btn>

@@ -5,7 +5,7 @@ export const ChartTemporada = styled.section`
   gap: var(--main-spacing);
   grid-template-columns: 1fr;
 
-  //background-color: var(--color-card-sugestoes);
+  background-color: var(--color-card-default);
   border-radius: var(--border-card);
   //padding: var(--main-spacing);
 `;

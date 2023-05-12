@@ -15,6 +15,7 @@ export default createGlobalStyle`
     --main-bottom-spacing: 5rem;
     --header-padding: var(--main-spacing);
     --nav-top-border: 0.25rem;
+    --chartBar-spacing: 2rem;
 
     // border
 
@@ -47,6 +48,9 @@ export default createGlobalStyle`
     --font-ListDispositivosHeader: 0.875rem;
     --font-ListDispositivos: 1rem;
     --font-ListDispositivos-piso: 0.75rem;
+
+    --font-chart-euros: 1rem;
+    --font-chart-mes: 0.75rem;
 
     // colors
 
@@ -89,6 +93,10 @@ export default createGlobalStyle`
     --color-text-DispositivosList: var(--color-blue-4);
     --color-text-DispositivosList-divisao: var(--color-black);
     --color-text-DispositivosList-piso: var(--color-gray-1);
+
+    --color-chartBar: var(--color-green-1);
+    --color-chart-euros: var(--color-gray-3);
+    --color-chart-mes: var(--color-gray-3);
     
     // Profile-header
 

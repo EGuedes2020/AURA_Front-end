@@ -8,5 +8,6 @@ export const Overline = styled.span`
   font-family: var(--inter);
   font-weight: var(--regular);
   font-size: var(--overlineDefault-text-size);
-  text-transform: uppercase;
+  text-transform: ${(props) =>
+    props.textTranform === "Default" ? "uppercase" : "lowercase"};
 `;

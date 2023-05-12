@@ -5,5 +5,5 @@ export const Main = styled.main`
   gap: var(--main-spacing);
   grid-template-columns: 1fr;
   padding: var(--main-spacing);
-  margin-bottom: var(--main-bottom-spacing);
+  padding-bottom: var(--main-bottom-spacing);
 `;

@@ -5,6 +5,10 @@ import { Btn } from "../styles/elements/Button";
 import { Overline } from "../styles/elements/Overline";
 import { ChartTemporada } from "../styles/Components/S_ChartTemporada";
 
+import { Link } from "react-router-dom";
+
+import Chart from "./Chart";
+
 const ChartTemporadaContainer = () => {
   return (
     <ChartTemporada>
@@ -13,9 +17,12 @@ const ChartTemporadaContainer = () => {
           <CardDefault variant="Sub">
             <Overline variant="Default"> Dados </Overline>
           </CardDefault>
-          <Btn variant="4"> ver detalhes </Btn>
+          <Link to="/Sugestao">
+            <Btn variant="4"> ver detalhes </Btn>
+          </Link>
         </CardDefaultSub2>
       </CardDefaultContainer>
+      <Chart></Chart>
     </ChartTemporada>
   );
 };

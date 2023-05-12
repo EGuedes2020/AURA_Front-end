@@ -11,4 +11,8 @@ export const CardDefaultSub2 = styled.article`
   button {
     justify-self: end;
   }
+
+  a {
+    justify-self: end;
+  }
 `;
