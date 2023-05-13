@@ -13,5 +13,3 @@ pre-push:
       run: npm run lint
     jest:
       run: npm run test
-    prettier:
-      run: npm run format
