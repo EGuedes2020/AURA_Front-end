@@ -20,7 +20,8 @@ export default createGlobalStyle`
     // border
 
     --border-card: 0.5rem;
-    --border-btn: 0.75rem; 
+    --border-btn: 0.75rem;
+    --border-login-input: 0.75rem;
     --border-total: 100%;
 
     // font
@@ -65,6 +66,10 @@ export default createGlobalStyle`
     --color-green-1:#18CCAC;
     --color-green-2:#07362D;
     --color-danger: #AE0B34;
+
+    --color-bg-login-input: var(--color-gray-3);
+    --color-text-login-input: var(--color-gray-1);
+    --color-span-login-pass: var(--color-gray-3);
 
     --color-text-button-primary: var(--color-green-2);
 

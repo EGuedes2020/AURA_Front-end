@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 
 function Header() {
+  const isAuthenticated = useSelector((state) => state.Login.isAuthenticated);
   const LoginRole = useSelector((state) => state.Login.loginRole);
 
   const [HeaderState, setHeaderState] = useState("");
@@ -39,7 +40,7 @@ function Header() {
     }
   }, [location, LoginRole]);
 
-  return (
+  const Header = (
     <HeaderNav>
       <h5>{HeaderState}</h5>
       <span>
@@ -47,6 +48,8 @@ function Header() {
       </span>
     </HeaderNav>
   );
+
+  return isAuthenticated ? Header : null;
 }
 
 export default Header;
