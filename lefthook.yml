@@ -5,6 +5,10 @@ pre-commit:
       run: npm run lint
     jest:
       run: npm run test
+    prettier:
+      run: npm run format:write
+      files: .
+      trim_output: true
 
 pre-push:
   parallel: true
