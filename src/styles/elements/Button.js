@@ -22,8 +22,8 @@ export const Btn = styled.button`
       : "uppercase"};
   width: ${(props) => (props.variant === "3" ? "100%" : "max-content")};
   // height: min-content;
-  position: ${(props) => (props.variant === "2" ? "absolute" : "static")};
-  bottom: var(--btn-bottom-absolute);
+  position: ${(props) => (props.variant === "2" ? "fixed" : "static")};
+  bottom: var(--btn-bottom-fixed);
   right: 1rem;
   z-index: 1;
 

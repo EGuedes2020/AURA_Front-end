@@ -11,18 +11,20 @@ import Plus_icon from "../../Assets/Icons/Plus_icon.svg";
 
 function Trabalhadores() {
   return (
-    <Main>
-      <SearchBar></SearchBar>
-      <TrabalhadorLinkContainer>
-        <TrabalhadorLink></TrabalhadorLink>
-        <TrabalhadorLink></TrabalhadorLink>
-      </TrabalhadorLinkContainer>
+    <>
       <Link to="/Sugestao">
         <Btn variant="2">
           <img src={Plus_icon} alt="Plus_icon" /> Convidar
         </Btn>
       </Link>
-    </Main>
+      <Main>
+        <SearchBar></SearchBar>
+        <TrabalhadorLinkContainer>
+          <TrabalhadorLink></TrabalhadorLink>
+          <TrabalhadorLink></TrabalhadorLink>
+        </TrabalhadorLinkContainer>
+      </Main>
+    </>
   );
 }
 

@@ -16,7 +16,7 @@ export default createGlobalStyle`
     --header-padding: var(--main-spacing);
     --nav-top-border: 0.25rem;
     --chartBar-spacing: 2rem;
-    --btn-bottom-absolute: 4.8rem;
+    --btn-bottom-fixed: 4.8rem;
 
     // border
 
