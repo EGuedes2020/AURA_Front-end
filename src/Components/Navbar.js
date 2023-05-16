@@ -10,6 +10,7 @@ import NavAvisosIcon from "../Assets/Icons/Nav_Avisos_icon";
 import NavLeaderboardIcon from "../Assets/Icons/Nav_Leaderboard_icon";
 import NavSugestoesIcon from "../Assets/Icons/Nav_Sugestoes_icon";
 import NavTrabalhadoresIcon from "../Assets/Icons/Nav_Trabalhadores_icon";
+
 import { useEffect } from "react";
 
 function Navbar() {

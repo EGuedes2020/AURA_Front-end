@@ -15,7 +15,9 @@ const ChartTemporadaContainer = () => {
       <CardDefaultContainer variant="1">
         <CardDefaultSub2>
           <CardDefault variant="Sub">
-            <Overline variant="Default"> Dados </Overline>
+            <Overline textTranform="Default" variant="Default">
+              Dados
+            </Overline>
           </CardDefault>
           <Link to="/Sugestao">
             <Btn variant="4"> ver detalhes </Btn>

@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const Btn = styled.button`
+  display: flex;
+  align-items: center;
   background-color: ${(props) =>
     props.variant === "4"
       ? "var(--color-bg-button-light)"
@@ -20,4 +22,12 @@ export const Btn = styled.button`
       : "uppercase"};
   width: ${(props) => (props.variant === "3" ? "100%" : "max-content")};
   // height: min-content;
+  position: ${(props) => (props.variant === "2" ? "absolute" : "static")};
+  bottom: var(--btn-bottom-absolute);
+  right: 1rem;
+  z-index: 1;
+
+  img {
+    margin-right: 0.5rem;
+  }
 `;

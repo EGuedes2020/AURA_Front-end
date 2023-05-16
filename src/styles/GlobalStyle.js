@@ -16,6 +16,7 @@ export default createGlobalStyle`
     --header-padding: var(--main-spacing);
     --nav-top-border: 0.25rem;
     --chartBar-spacing: 2rem;
+    --btn-bottom-absolute: 4.8rem;
 
     // border
 
@@ -53,8 +54,13 @@ export default createGlobalStyle`
     --font-chart-euros: 1rem;
     --font-chart-mes: 0.75rem;
 
+    --font-SearchBar: 1rem;
+
+    --font-trabalhadorLink: 1rem;
+
     // colors
 
+    --transparent: rgba(255, 255, 255, 0);;
     --color-black: #131313;
     --color-gray-1: #666666;
     --color-gray-2: #CCD6DA;
@@ -102,7 +108,13 @@ export default createGlobalStyle`
     --color-chartBar: var(--color-green-1);
     --color-chart-euros: var(--color-gray-3);
     --color-chart-mes: var(--color-gray-3);
+
+    --color-bg-SearchBar: var(--color-gray-3);
+    --color-text-SearchBar: var(--color-gray-1);
     
+    --color-bg-trabalhadorLink: var(--color-gray-3);
+    --color-text-trabalhadorLink: var(--color-black);
+
     // Profile-header
 
     --icon-profile-header: 2rem;
