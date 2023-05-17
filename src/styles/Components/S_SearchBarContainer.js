@@ -5,8 +5,7 @@ export const SearchBarContainer = styled.section`
   overflow: hidden;
   border-radius: var(--border-btn);
   display: grid;
-  
-  
+
   button {
     position: absolute;
     left: 0;

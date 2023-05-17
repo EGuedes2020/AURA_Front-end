@@ -35,7 +35,10 @@ export const ListDispositivos = styled.section`
   }
 
   span:nth-child(1) {
-    span {
+    p {
+      text-align: left;
+      padding-top: 0.2rem;
+
       color: var(--color-text-DispositivosList-piso);
       font-size: var(--font-ListDispositivos-piso);
       font-weight: var(--regular);
@@ -57,10 +60,20 @@ export const ListDispositivos = styled.section`
   p {
     justify-self: center;
     text-align: center;
+    padding-top: 0.2rem;
 
     color: var(--color-text-DispositivosList);
     font-weight: var(--bold);
     font-size: var(--font-ListDispositivos);
     font-family: var(--inter);
+
+    span {
+      margin-left: 0.2rem;
+
+      color: var(--color-text-DispositivosList-piso);
+      font-size: var(--font-ListDispositivos-piso);
+      font-weight: var(--regular);
+      font-family: var(--inter);
+    }
   }
 `;

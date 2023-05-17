@@ -10,7 +10,7 @@ function Sugestoes() {
   return (
     <Main>
       <CardSugestoes></CardSugestoes>
-      <Link to="/Sugestao">
+      <Link to="/CriarSugestao">
         <Btn variant="2">
           <img src={Plus_icon} alt="Plus_icon" /> Adicionar
         </Btn>

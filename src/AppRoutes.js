@@ -25,8 +25,12 @@ import CriarSugestao from "./Pages/Sugestoes/CriarSugestao";
 // Trabalhadores
 import Trabalhadores from "./Pages/Trabalhadores/Trabalhadores";
 import Trabalhador from "./Pages/Trabalhadores/Trabalhador";
+import ConvidarTrabalhador from "./Pages/Trabalhadores/ConvidarTrabalhador";
 
+// Extras
 import Definicoes from "./Pages/Definicoes";
+import GestaoDispositivos from "./Pages/GestaoDispositivos";
+
 import PageNotFound from "./Pages/PageNotFound";
 
 // const Dispositivos = lazy(() => import("./Pages/Dispositivos/Dispositivos"));
@@ -113,8 +117,20 @@ const AppRotas = () => {
         element={isAuthenticated ? <Trabalhador /> : <Navigate to="/Login" />}
       ></Route>
       <Route
+        path="/ConvidarTrabalhador"
+        element={
+          isAuthenticated ? <ConvidarTrabalhador /> : <Navigate to="/Login" />
+        }
+      ></Route>
+      <Route
         path="/Definicoes"
         element={isAuthenticated ? <Definicoes /> : <Navigate to="/Login" />}
+      ></Route>
+      <Route
+        path="/GestaoDispositivos"
+        element={
+          isAuthenticated ? <GestaoDispositivos /> : <Navigate to="/Login" />
+        }
       ></Route>
 
       <Route path="*" element={<PageNotFound />}></Route>

@@ -16,6 +16,7 @@ import { useEffect } from "react";
 function Navbar() {
   const isAuthenticated = useSelector((state) => state.Login.isAuthenticated);
   const LoginRole = useSelector((state) => state.Login.loginRole);
+  const NavbarState = useSelector((state) => state.Navbar.navbarState);
 
   const [NavState, setNavState] = useState("0");
 
@@ -113,7 +114,13 @@ function Navbar() {
     </>
   );
 
-  return isAuthenticated ? (LoginRole === 1 ? NavAdmin : NavColaborador) : null;
+  return isAuthenticated
+    ? NavbarState
+      ? LoginRole === 1
+        ? NavAdmin
+        : NavColaborador
+      : null
+    : null;
 }
 
 export default Navbar;

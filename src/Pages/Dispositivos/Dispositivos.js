@@ -10,6 +10,8 @@ import {
   ListDispositivos,
 } from "../../styles/Components/ListDispositivos";
 
+import { Link } from "react-router-dom";
+
 import RowListDispositivos from "../../Components/RowListDispositivos";
 
 // | Variants
@@ -43,7 +45,9 @@ function Dispositivos() {
             </Overline>
             <OverlineDefaultData> 621 </OverlineDefaultData>
           </CardDefault>
-          <Btn variant="1"> ver detalhes </Btn>
+          <Link to="/AvisosAtivos">
+            <Btn variant="1"> ver detalhes </Btn>
+          </Link>
         </CardDefaultSub2>
       </CardDefaultContainer>
       <ListDispositivosContainer>

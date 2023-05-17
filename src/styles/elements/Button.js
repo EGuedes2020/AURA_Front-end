@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
 export const Btn = styled.button`
-  display: flex;
+  display: ${(props) => (props.variant === "2" ? "flex" : "initial")};
   align-items: center;
+
   background-color: ${(props) =>
     props.variant === "4"
       ? "var(--color-bg-button-light)"
