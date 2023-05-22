@@ -1,13 +1,19 @@
 import { HeaderNav } from "../styles/Components/S_Header";
 import ProfilePic from "../Assets/Img/Profile.png";
 
+import { H5 } from "../styles/elements/H5";
 import { useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 
 import BackIcon from "../Assets/Icons/Back_icon";
+import CrossIcon from "../Assets/Icons/Cross_icon";
+
+import TrashIcon from "../Assets/Icons/Trash_icon";
 
 import { setNavbarState } from "../redux/NavbarStateReducer_Slice";
+
+import { Link } from "react-router-dom";
 
 function Header() {
   const dispatch = useDispatch();
@@ -17,10 +23,12 @@ function Header() {
 
   const [HeaderState, setHeaderState] = useState("");
   const [BackBtn, setBackBtn] = useState(false);
+  const [CrossBtn, setCrossBtn] = useState(false);
 
   const location = useLocation().pathname.split("/")[1].toLowerCase();
 
   useEffect(() => {
+    setCrossBtn(false);
     setBackBtn(false);
     dispatch(setNavbarState(true));
     switch (location) {
@@ -86,7 +94,7 @@ function Header() {
         break;
       case "definicoes":
         setHeaderState("Definições");
-        setBackBtn(true);
+        setCrossBtn(true);
         dispatch(setNavbarState(false));
         break;
       case "gestaodispositivos":
@@ -105,12 +113,25 @@ function Header() {
     </span>
   );
 
+  const Cross = (
+    <span onClick={() => window.history.back()}>
+      <CrossIcon />
+    </span>
+  );
+
   const Header = (
-    <HeaderNav variant={BackBtn ? "back" : ""}>
+    <HeaderNav variant={BackBtn ? "back" : CrossBtn ? "back" : ""}>
       {BackBtn ? Back : null}
-      <h5>{HeaderState}</h5>
+      {CrossBtn ? Cross : null}
+      <H5>{HeaderState}</H5>
       <span>
-        <img src={ProfilePic} alt="fotografia_de_utilizador" />
+        {location === "sugestao" ? (
+          <TrashIcon />
+        ) : (
+          <Link to="/Definicoes">
+            <img src={ProfilePic} alt="fotografia_de_utilizador" />
+          </Link>
+        )}
       </span>
     </HeaderNav>
   );
@@ -119,5 +140,3 @@ function Header() {
 }
 
 export default Header;
-
-// (BackBtn ? Header : Header)

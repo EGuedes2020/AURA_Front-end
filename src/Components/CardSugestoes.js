@@ -17,7 +17,7 @@ const CardSugestoes = () => {
     <CardSugestoesContainer>
       <Overline variant="Sugestoes"> 12/04/2023 </Overline>
       <H6 variant="Sugestoes"> Aquisições Sustentáveis </H6>
-      <PCardSugestoes>
+      <PCardSugestoes variant="card">
         Aquisições Sustentáveis são uma proposta importante e relevante para
         garantir que as compras realizadas por organizações, governos e empresas
         sejam feitas de forma responsável com o meio ambiente e a sociedade. A

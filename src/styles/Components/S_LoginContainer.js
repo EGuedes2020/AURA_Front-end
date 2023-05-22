@@ -26,17 +26,17 @@ export const LoginForms = styled.form`
 
   span {
     justify-self: end;
-    color: var(--color-span-login-pass);
+    color: var(--color-span-forms-pass);
   }
 
   input {
     border-radius: var(--border-login-input);
-    background-color: var(--color-bg-login-input);
+    background-color: var(--color-bg-forms-input);
     border: none;
     padding: 1rem;
     font-family: var(--inter);
     font-weight: var(--regular);
-    color: var(--color-text-login-input);
+    color: var(--color-text-forms-input);
     font-size: 1rem;
 
     &:focus {

@@ -1,33 +1,19 @@
 import { Main } from "../../styles/Components/S_Main";
-import { CardDefaultContainer } from "../../styles/Components/S_CardDefaultContainer";
-import { CardDefault } from "../../styles/elements/CardDefault";
-import { Overline } from "../../styles/elements/Overline";
-import { OverlineDefaultData } from "../../styles/elements/OverlineDefaultData";
 
 import ChartDadosContainer from "../../Components/ChartDadosContainer";
+import MesDadosContainer from "../../Components/MesDadosContainer";
 
 function Dados() {
   return (
     <Main>
       <ChartDadosContainer></ChartDadosContainer>
-      <CardDefaultContainer variant="2">
-        <CardDefault>
-          <Overline textTranform="Default" variant="Default">
-            energia
-          </Overline>
-          <OverlineDefaultData>
-            1223.23 <Overline variant="Default"> kWh </Overline>
-          </OverlineDefaultData>
-        </CardDefault>
-        <CardDefault>
-          <Overline textTranform="Default" variant="Default">
-            despesa
-          </Overline>
-          <OverlineDefaultData>
-            567.23 <Overline variant="Default"> € </Overline>
-          </OverlineDefaultData>
-        </CardDefault>
-      </CardDefaultContainer>
+      <MesDadosContainer
+        mes="Março"
+        energia="1223.23"
+        despesa="567.23"
+      ></MesDadosContainer>
+      <MesDadosContainer mes="Abril" energia="" despesa=""></MesDadosContainer>
+      <MesDadosContainer mes="Maio" energia="" despesa=""></MesDadosContainer>
     </Main>
   );
 }

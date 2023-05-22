@@ -16,6 +16,10 @@ export const HeaderNav = styled.header`
     cursor: pointer;
   }
 
+  span:nth-last-child(1) {
+    cursor: pointer;
+  }
+
   span {
     display: flex;
     align-items: center;

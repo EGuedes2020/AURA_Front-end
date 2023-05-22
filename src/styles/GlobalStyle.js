@@ -1,6 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
+
   :root {
 
     -webkit-tap-highlight-color: transparent;
@@ -57,10 +58,15 @@ export default createGlobalStyle`
     --font-SearchBar: 1rem;
 
     --font-trabalhadorLink: 1rem;
+    
+    --font-btn-modal: 0.875rem;
+    --font-checkbox-text: 1rem;
 
     // colors
 
-    --transparent: rgba(255, 255, 255, 0);;
+    --transparent: rgba(255, 255, 255, 0);
+    --color-modal-background: rgba(19, 19, 19, 0.6);
+
     --color-black: #131313;
     --color-gray-1: #666666;
     --color-gray-2: #CCD6DA;
@@ -73,9 +79,20 @@ export default createGlobalStyle`
     --color-green-2:#07362D;
     --color-danger: #AE0B34;
 
-    --color-bg-login-input: var(--color-gray-3);
-    --color-text-login-input: var(--color-gray-1);
-    --color-span-login-pass: var(--color-gray-3);
+    --color-bg-modal: var(--color-gray-3);
+
+    --color-veredito-checkbox: rgba(102, 102, 102, 0.2);
+    --color-veredito-checked-checkbox: var(--color-blue-4);
+    --color-text-veredito-checked-checkbox: var(--color-gray-3);
+    --color-text-veredito-checkbox: var(--color-black);
+
+    --color-bg-btn-veredito: var(--transparent);
+    --color-text-btn-veredito: var(--color-gray-1);
+    --color-text-btn-veredito-submit: var(--color-blue-1);
+
+    --color-bg-forms-input: var(--color-gray-3);
+    --color-text-forms-input: var(--color-gray-1);
+    --color-span-forms-pass: var(--color-gray-3);
 
     --color-text-button-primary: var(--color-green-2);
 
@@ -89,11 +106,13 @@ export default createGlobalStyle`
 
     --color-bg-blue: var(--color-blue-4);
 
-    --color-overline-card-defaut: var(--color-gray-3);
     --color-card-default: var(--color-blue-2);
+    --color-overline-card-defaut: var(--color-gray-3);
 
     --color-overline-card-sugestoes: var(--color-gray-1);
+    --color-overline-card-sugestao: var(--color-gray-2);
     --color-p-card-sugestoes: var(--color-black);
+    --color-p-card-sugestao: var(--color-gray-3);
     --color-span-card-sugestoes: var(--color-gray-1);
     --color-card-sugestoes: var(--color-gray-3);
     --color-votes-sugestoes: var(--color-blue-1);
@@ -118,15 +137,10 @@ export default createGlobalStyle`
     // Profile-header
 
     --icon-profile-header: 2rem;
+    
+  }
 
-    // Headings
-
-    h5{
-    font-family: var(--readex-pro);
-    font-size: 1.5rem;
-    font-weight: var(--bold);
-    color: white;
-    line-height: var(--icon-profile-header);
-    }
+  body{
+    overflow: ${(props) => (props.scroll ? "auto" : "hidden")};
   }
 `;

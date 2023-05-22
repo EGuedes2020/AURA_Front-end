@@ -10,4 +10,5 @@ export const H6 = styled.h6`
       : "var(--color-gray-3)"};
   line-height: var(--icon-profile-header);
   text-align: ${(props) => (props.variant === "Temporada" ? "center" : "left")};
+  margin-bottom: ${(props) => (props.variant === "Dados" ? "0.5rem" : "0")};
 `;
