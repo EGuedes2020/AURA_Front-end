@@ -42,6 +42,7 @@ export const DivRadioBox = styled.div`
       aspect-ratio: 2 / 1.5;
       background-color: var(--color-veredito-checkbox);
       border-radius: var(--border-btn);
+      cursor: pointer;
     }
 
     input[type="radio"]:checked {

@@ -27,6 +27,7 @@ import {
 } from "../../redux/ModalStateReducer_Slice";
 
 import AprovadoIcon from "../../Assets/Icons/Aprovado_icon";
+import DesaprovadoIcon from "../../Assets/Icons/Desaprovado_icon";
 
 function Sugestao() {
   const [ModalDisplay, setModalDisplay] = useState(false);
@@ -60,7 +61,6 @@ function Sugestao() {
       setIconDesaprovado("checked");
       setVeredito("Desaprovado");
     }
-    console.log(Veredito);
   }, [ModalDisplay, dispatch, VereditoState]);
 
   useEffect(() => {
@@ -132,7 +132,7 @@ function Sugestao() {
                 id="Desaprovado"
               ></input>
               <div>
-                <AprovadoIcon
+                <DesaprovadoIcon
                   color={
                     IconDesaprovado === "unchecked"
                       ? "var(--color-black)"
