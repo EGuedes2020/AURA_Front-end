@@ -10,7 +10,9 @@ import ChartTemporadaContainer from "../../Components/ChartTemporadaContainer";
 function Temporada() {
   return (
     <Main>
-      <H6 variant="Temporada">Temporada 1</H6>
+      <H6 variant="Temporada" align="center">
+        Temporada 1
+      </H6>
       <ChartTemporadaContainer></ChartTemporadaContainer>
       <CardDefaultContainer variant="2">
         <CardDefault>

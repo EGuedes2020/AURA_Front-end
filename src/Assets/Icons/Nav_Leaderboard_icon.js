@@ -9,7 +9,7 @@ function Nav_Leaderboard_icon() {
     >
       <path
         d="M16 11V3H8V9H2V21H22V11H16ZM10 5H14V19H10V5ZM4 11H8V19H4V11ZM20 19H16V13H20V19Z"
-        fill="#FFFFFF"
+        fill=""
       />
     </svg>
   );

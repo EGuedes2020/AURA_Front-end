@@ -127,7 +127,10 @@ function Header() {
       <span>
         {location === "sugestao" ? (
           <TrashIcon />
-        ) : (
+        ) : location === "trabalhador" ? (
+          <TrashIcon />
+        ) : location === "definicoes" ? null : location ===
+          "gestaodispositivos" ? null : (
           <Link to="/Definicoes">
             <img src={ProfilePic} alt="fotografia_de_utilizador" />
           </Link>

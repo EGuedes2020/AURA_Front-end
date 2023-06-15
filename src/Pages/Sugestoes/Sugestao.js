@@ -157,7 +157,7 @@ function Sugestao() {
   );
 
   return (
-    <Main variant="ModalOn">
+    <Main>
       {ModalDisplay ? Modal : null}
       <Overline variant="Sugestao"> 12/04/2023 </Overline>
       <H5> Aquisições Sustentáveis </H5>

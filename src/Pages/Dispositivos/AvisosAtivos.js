@@ -15,7 +15,7 @@ function AvisosAtivos() {
   return (
     <Main>
       <CardDefaultContainer variant="1">
-        <CardDefaultSub2>
+        <CardDefaultSub2 variant="1">
           <CardDefault variant="Sub">
             <Overline textTranform="Default" variant="Default">
               Avisos Ativos

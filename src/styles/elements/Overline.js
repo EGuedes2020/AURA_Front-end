@@ -6,6 +6,8 @@ export const Overline = styled.span`
       ? "var(--color-overline-card-defaut)"
       : props.variant === "Sugestao"
       ? "var(--color-overline-card-sugestao)"
+      : props.variant === "veredito"
+      ? "var(--color-overline-card-sugestao)"
       : "var(--color-overline-card-sugestoes)"};
   font-family: var(--inter);
   font-weight: var(--regular);

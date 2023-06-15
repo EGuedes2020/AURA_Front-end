@@ -8,16 +8,29 @@ import { H6 } from "../styles/elements/H6";
 
 import { Link } from "react-router-dom";
 
+import { useState } from "react";
+
+import AprovadoIcon from "../Assets/Icons/Aprovado_icon";
+import DesaprovadoIcon from "../Assets/Icons/Desaprovado_icon";
+
 // | Variants
 // - Overline: Default || Sugestoes (styles)
 // - Btn: 1 || 2 || 3 || 4 (1 para o default, 2 para a versão default com text-transform none, 3 para a versão width 100%, 4 para a versão branca)
 
-const CardSugestoes = () => {
+const CardSugestoes = (props) => {
+  const [Veredito, setVeredito] = useState(true);
+
+  const vereditoIcon = (
+    <>
+      <DesaprovadoIcon color="var(--color-green-1)" />
+    </>
+  );
+
   return (
-    <CardSugestoesContainer>
-      <Overline variant="Sugestoes"> 12/04/2023 </Overline>
-      <H6 variant="Sugestoes"> Aquisições Sustentáveis </H6>
-      <PCardSugestoes variant="card">
+    <CardSugestoesContainer variant={props.variant}>
+      <Overline variant={props.variant}> 12/04/2023 </Overline>
+      <H6 variant={props.variant}> Aquisições Sustentáveis </H6>
+      <PCardSugestoes type="card" variant={props.variant}>
         Aquisições Sustentáveis são uma proposta importante e relevante para
         garantir que as compras realizadas por organizações, governos e empresas
         sejam feitas de forma responsável com o meio ambiente e a sociedade. A
@@ -42,11 +55,12 @@ const CardSugestoes = () => {
         preocupam não apenas com seus resultados financeiros, mas também com o
         impacto que geram na sociedade e no meio ambiente.
       </PCardSugestoes>
-      <SecVotosVerMaisSugestoesContainer>
-        <SecVotosSugestoes>
+      <SecVotosVerMaisSugestoesContainer variant={props.variant}>
+        <SecVotosSugestoes variant={props.variant}>
           33 <span> Votos </span>
         </SecVotosSugestoes>
-        <SecVerMaisSugestoes>
+        {Veredito ? vereditoIcon : null}
+        <SecVerMaisSugestoes variant={props.variant}>
           <Link to="/Sugestao">Ver mais</Link>
         </SecVerMaisSugestoes>
       </SecVotosVerMaisSugestoesContainer>

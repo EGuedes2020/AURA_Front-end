@@ -9,7 +9,9 @@ import Plus_icon from "../../Assets/Icons/Plus_icon.svg";
 function Sugestoes() {
   return (
     <Main>
-      <CardSugestoes></CardSugestoes>
+      <CardSugestoes variant="Sugestoes"></CardSugestoes>
+      <CardSugestoes variant="veredito"></CardSugestoes>
+
       <Link to="/CriarSugestao">
         <Btn variant="2">
           <img src={Plus_icon} alt="Plus_icon" /> Adicionar

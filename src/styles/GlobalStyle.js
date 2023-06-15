@@ -13,7 +13,7 @@ export default createGlobalStyle`
     // spacing
 
     --main-spacing: 1rem;
-    --main-bottom-spacing: 5rem;
+    --main-bottom-spacing: 8rem;
     --header-padding: var(--main-spacing);
     --nav-top-border: 0.25rem;
     --chartBar-spacing: 2rem;
@@ -58,9 +58,13 @@ export default createGlobalStyle`
     --font-SearchBar: 1rem;
 
     --font-trabalhadorLink: 1rem;
+
+    --font-user-profile-info: 1rem;
     
     --font-btn-modal: 0.875rem;
     --font-checkbox-text: 1rem;
+
+    --font-info-box: 0.875rem;
 
     // colors
 
@@ -99,6 +103,7 @@ export default createGlobalStyle`
     --color-bg-button: var(--color-green-1);
     --color-bg-button-light: var(--color-gray-3);
     --color-links: var(--color-blue-1);
+    --color-links-veredito: var(--color-gray-3);
 
     --color-nav: var(--color-blue-2);
     --color-nav-selected: var(--color-blue-3);
@@ -111,11 +116,16 @@ export default createGlobalStyle`
 
     --color-overline-card-sugestoes: var(--color-gray-1);
     --color-overline-card-sugestao: var(--color-gray-2);
+    --color-overline-card-sugestao-veredito: var(--color-gray-3);
     --color-p-card-sugestoes: var(--color-black);
+    --color-p-card-sugestoes-veredito: var(--color-gray-3);
     --color-p-card-sugestao: var(--color-gray-3);
     --color-span-card-sugestoes: var(--color-gray-1);
+    --color-span-card-sugestoes-veredito: var(--color-gray-3);
     --color-card-sugestoes: var(--color-gray-3);
+    --color-card-sugestoes-veredito: var(--color-blue-2);
     --color-votes-sugestoes: var(--color-blue-1);
+    --color-votes-sugestoes-veredito: var(--color-gray-3);
 
     --color-bg-DispositivosList: var(--color-gray-3);
     --color-bg-DispositivosList-Header: var(--color-blue-2);
@@ -133,6 +143,8 @@ export default createGlobalStyle`
     
     --color-bg-trabalhadorLink: var(--color-gray-3);
     --color-text-trabalhadorLink: var(--color-black);
+
+    --color-span-user-profile-info: var(--color-gray-2);
 
     // Profile-header
 

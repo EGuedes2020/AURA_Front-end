@@ -26,6 +26,14 @@ export const Nav = styled.nav`
     background-color: var(--color-nav-selected);
     border-top: var(--nav-top-border) solid var(--color-nav-stroke);
     padding: calc(1.2rem - var(--nav-top-border)) 1.2rem 1.2rem 1.2rem;
+
+    span {
+      svg {
+        fill: var(--color-gray-3);
+        width: auto;
+        cursor: pointer;
+      }
+    }
   }
 
   a:active {
@@ -38,6 +46,7 @@ export const Nav = styled.nav`
 
   span {
     svg {
+      fill: var(--color-gray-2);
       width: auto;
       cursor: pointer;
     }

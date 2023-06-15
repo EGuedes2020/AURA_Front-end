@@ -31,7 +31,9 @@ function PreencherDadosMes() {
 
   return (
     <Main>
-      <H6 variant="Temporada"> Abril </H6>
+      <H6 variant="Temporada" align="center">
+        Abril
+      </H6>
       <FormsPreencherDadosMes variant="PreencherDadosMes">
         <span>
           <span> kWh </span>
