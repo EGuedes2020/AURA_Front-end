@@ -50,6 +50,11 @@ function Header() {
         setBackBtn(true);
         dispatch(setNavbarState(false));
         break;
+      case "conquistas":
+        setHeaderState("Conquistas");
+        setBackBtn(true);
+        dispatch(setNavbarState(false));
+        break;
       case "dispositivos":
         setHeaderState("Dispositivos");
         break;

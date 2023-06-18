@@ -66,6 +66,12 @@ export default createGlobalStyle`
 
     --font-info-box: 0.875rem;
 
+    // Conquistas Header
+
+    --padding-bottom: 0.625rem;
+    --font-size: 1.25rem;
+    --stroke-height: 1rem;
+
     // colors
 
     --transparent: rgba(255, 255, 255, 0);

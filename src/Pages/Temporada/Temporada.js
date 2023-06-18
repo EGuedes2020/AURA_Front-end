@@ -4,8 +4,14 @@ import { CardDefaultContainer } from "../../styles/Components/S_CardDefaultConta
 import { CardDefault } from "../../styles/elements/CardDefault";
 import { Overline } from "../../styles/elements/Overline";
 import { OverlineDefaultData } from "../../styles/elements/OverlineDefaultData";
+import { BadgesContainer } from "../../styles/Components/BadgesContainer";
+import { Btn } from "../../styles/elements/Button";
+import { CardDefaultSub2 } from "../../styles/elements/CardDefaultSub2";
+
+import { Link } from "react-router-dom";
 
 import ChartTemporadaContainer from "../../Components/ChartTemporadaContainer";
+import SeasonBadges from "../../Components/SeasonBadges";
 
 function Temporada() {
   return (
@@ -31,6 +37,19 @@ function Temporada() {
           </OverlineDefaultData>
         </CardDefault>
       </CardDefaultContainer>
+      <BadgesContainer>
+        <CardDefaultSub2>
+          <CardDefault variant="Sub">
+            <Overline textTranform="Default" variant="Default">
+              conquistas
+            </Overline>
+          </CardDefault>
+          <Link to="/Conquistas">
+            <Btn variant="4"> ver detalhes </Btn>
+          </Link>
+        </CardDefaultSub2>
+        <SeasonBadges></SeasonBadges>
+      </BadgesContainer>
     </Main>
   );
 }

@@ -7,6 +7,7 @@ import Login from "./Pages/Login";
 import Temporada from "./Pages/Temporada/Temporada";
 import Dados from "./Pages/Temporada/Dados";
 import PreencherDadosMes from "./Pages/Temporada/PreencherDadosMes";
+import Conquistas from "./Pages/Temporada/Conquistas";
 
 // Dispositivos
 import Dispositivos from "./Pages/Dispositivos/Dispositivos";
@@ -75,6 +76,10 @@ const AppRotas = () => {
         element={
           isAuthenticated ? <PreencherDadosMes /> : <Navigate to="/Login" />
         }
+      ></Route>
+      <Route
+        path="/Conquistas"
+        element={isAuthenticated ? <Conquistas /> : <Navigate to="/Login" />}
       ></Route>
       <Route
         path="/Dispositivos"

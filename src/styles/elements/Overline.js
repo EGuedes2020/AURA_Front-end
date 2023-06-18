@@ -6,6 +6,8 @@ export const Overline = styled.span`
       ? "var(--color-overline-card-defaut)"
       : props.variant === "Sugestao"
       ? "var(--color-overline-card-sugestao)"
+      : props.variant === "badges"
+      ? "var(--color-black)"
       : props.variant === "veredito"
       ? "var(--color-overline-card-sugestao)"
       : "var(--color-overline-card-sugestoes)"};
@@ -13,5 +15,5 @@ export const Overline = styled.span`
   font-weight: var(--regular);
   font-size: var(--overlineDefault-text-size);
   text-transform: ${(props) =>
-    props.textTranform === "Default" ? "uppercase" : "lowercase"};
+    props.textTranform === "Default" ? "uppercase" : "capitalize"};
 `;
