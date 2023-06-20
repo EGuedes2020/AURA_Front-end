@@ -9,13 +9,14 @@ export const UserProfileInfoStyles = styled.section`
   text-align: center;
 
   img {
+    height: var(--profile-pic-size);
     justify-self: center;
     border-radius: 100%;
     margin-bottom: var(--main-spacing);
   }
 
   span {
-    margin-top:0.5rem;
+    margin-top: 0.5rem;
     font-family: var(--inter);
     font-weight: var(--bold);
     font-size: var(--font-user-profile-info);

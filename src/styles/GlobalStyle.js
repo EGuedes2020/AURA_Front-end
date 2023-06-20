@@ -61,6 +61,12 @@ export default createGlobalStyle`
 
     --font-user-profile-info: 1rem;
     
+    --font-leaderboard-score: 1.25rem;
+    --font-leaderboard-institution: 0.875rem;
+    --font-leaderboard-list-numbers: 1rem;
+    --font-leaderboard-list-nome: 0.875rem;
+    --font-leaderboard-list-score: 1rem;
+    
     --font-btn-modal: 0.875rem;
     --font-checkbox-text: 1rem;
 
@@ -152,10 +158,13 @@ export default createGlobalStyle`
 
     --color-span-user-profile-info: var(--color-gray-2);
 
-    // Profile-header
+    --color-span-leaderboard-list-numbers: var(--color-gray-3);
+
+    // Profile
 
     --icon-profile-header: 2rem;
-    
+    --profile-pic-size: 6.5rem;
+
   }
 
   body{

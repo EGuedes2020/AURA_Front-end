@@ -16,7 +16,10 @@ import HelpIcon from "../Assets/Icons/Help_icon";
 function Definicoes() {
   return (
     <Main>
-      <UserProfileInfo></UserProfileInfo>
+      <UserProfileInfo
+        name="David Silva"
+        email="davidsilva@gmail.com"
+      ></UserProfileInfo>
       <DoubleDefinicoesBTN btn="2">
         <BtnDefinicoes bgcolor="1">
           <EditIcon /> Editar Perfil

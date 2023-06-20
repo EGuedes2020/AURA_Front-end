@@ -10,7 +10,10 @@ import UserProfileInfo from "../../Components/UserProfileInfo";
 function Trabalhador() {
   return (
     <Main>
-      <UserProfileInfo></UserProfileInfo>
+      <UserProfileInfo
+        name="David Silva"
+        email="davidsilva@gmail.com"
+      ></UserProfileInfo>
       <CardDefaultSub2 variant="1">
         <CardDefault variant="Sub">
           <Overline textTranform="Default" variant="Default">
