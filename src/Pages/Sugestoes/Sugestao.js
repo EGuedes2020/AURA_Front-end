@@ -7,7 +7,7 @@ import { CardDefault } from "../../styles/elements/CardDefault";
 import { CardDefaultSub2 } from "../../styles/elements/CardDefaultSub2";
 import { CardDefaultContainer } from "../../styles/Components/S_CardDefaultContainer";
 import { ModalBackground } from "../../styles/Components/ModalBackground";
-import { ModalVereditoSugestao } from "../../styles/Components/ModalVereditoSugestao";
+import { SugestaoModalContainer } from "../../styles/Components/SugestaoModalContainer";
 import { OverlineDefaultData } from "../../styles/elements/OverlineDefaultData";
 import { Btn } from "../../styles/elements/Button";
 import { BtnVeredito } from "../../styles/elements/ButtonVeredito";
@@ -75,8 +75,6 @@ function Sugestao() {
       setVereditoDesaprovado("checked");
       setIconDesaprovado("checked");
     }
-
-    console.log(Veredito);
   }, [dispatch, Veredito]);
 
   const confirmarVeredito = () => {
@@ -100,8 +98,8 @@ function Sugestao() {
   const Modal = (
     <>
       <ModalBackground></ModalBackground>
-      <ModalVereditoSugestao>
-        <H6 variant="Sugestoes">Selecione o Veredito</H6>
+      <SugestaoModalContainer>
+        <H6 variant="black">Selecione o Veredito</H6>
         <FormsModalVeredito id="SugestaoVeredito">
           <DivRadioBox>
             <div onClick={() => setVeredito("Aprovado")}>
@@ -147,12 +145,16 @@ function Sugestao() {
           </DivRadioBox>
           <SpanBtnModal>
             <BtnVeredito onClick={CancelarVeredito}>Cancelar</BtnVeredito>
-            <BtnVeredito onClick={confirmarVeredito} variant="submit">
+            <BtnVeredito
+              onClick={confirmarVeredito}
+              type="submit"
+              variant="submit"
+            >
               Confirmar
             </BtnVeredito>
           </SpanBtnModal>
         </FormsModalVeredito>
-      </ModalVereditoSugestao>
+      </SugestaoModalContainer>
     </>
   );
 

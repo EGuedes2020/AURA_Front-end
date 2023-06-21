@@ -13,9 +13,10 @@ import NavTrabalhadoresIcon from "../Assets/Icons/Nav_Trabalhadores_icon";
 
 import { useEffect } from "react";
 
+
 function Navbar() {
   const isAuthenticated = useSelector((state) => state.Login.isAuthenticated);
-  const LoginRole = useSelector((state) => state.Login.loginRole);
+  const Role = useSelector((state) => state.Login.Role);
   const NavbarState = useSelector((state) => state.Navbar.navbarState);
 
   const [NavState, setNavState] = useState("0");
@@ -36,10 +37,10 @@ function Navbar() {
         setNavState("2");
         break;
       case "leaderboard":
-        LoginRole === 1 ? setNavState("3") : setNavState("4");
+        Role === "admin" ? setNavState("3") : setNavState("4");
         break;
       case "sugestoes":
-        LoginRole === 1 ? setNavState("4") : setNavState("3");
+        Role === "admin" ? setNavState("4") : setNavState("3");
         break;
       case "trabalhadores":
         setNavState("5");
@@ -47,11 +48,11 @@ function Navbar() {
       default:
         setNavState("0");
     }
-  }, [location, LoginRole]);
+  }, [location, Role]);
 
   const NavAdmin = (
     <>
-      <Nav LoginRole={LoginRole} navselected={NavState}>
+      <Nav Role={Role} navselected={NavState}>
         <Link to="/" onClick={() => setNavState("1")}>
           <span>
             <NavTemporadaIcon />
@@ -86,7 +87,7 @@ function Navbar() {
 
   const NavColaborador = (
     <>
-      <Nav LoginRole={LoginRole} navselected={NavState}>
+      <Nav Role={Role} navselected={NavState}>
         <Link to="/" onClick={() => setNavState("1")}>
           <span>
             <NavAvisosIcon />
@@ -116,7 +117,7 @@ function Navbar() {
 
   return isAuthenticated
     ? NavbarState
-      ? LoginRole === 1
+      ? Role === "admin"
         ? NavAdmin
         : NavColaborador
       : null

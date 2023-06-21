@@ -4,7 +4,7 @@ export const Nav = styled.nav`
   display: grid;
   //column-gap: 2.7rem;
   grid-template-columns: ${(props) =>
-    props.LoginRole === 1 ? "1fr 1fr 1fr 1fr 1fr" : "1fr 1fr 1fr 1fr"};
+    props.Role === "admin" ? "1fr 1fr 1fr 1fr 1fr" : "1fr 1fr 1fr 1fr"};
 
   background-color: var(--color-nav);
   position: fixed;

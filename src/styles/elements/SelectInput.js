@@ -5,7 +5,7 @@ import DropDownIcon from "../../Assets/Icons/DropDown_icon.svg";
 export const SelectInput = styled.select`
   border-radius: var(--border-login-input);
   background-color: var(--color-bg-forms-input);
-  border: none;
+  border: ${(props) => (props.variant === "modal" ? "solid" : "none")};
   padding: 1rem;
   font-family: var(--inter);
   font-weight: var(--regular);

@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
-export const BtnVeredito = styled.button`
+export const BtnModal = styled.button`
   align-items: center;
+  justify-self: end;
 
   background-color: var(--color-bg-btn-veredito);
   border-radius: var(--border-btn);

@@ -6,10 +6,10 @@ import { Btn } from "../../styles/elements/Button";
 import React, { useState } from "react";
 
 function PreencherDadosMes() {
-  const [inputConsumeValue, setInputConsumeValue] = useState("");
-  const [inputCostValue, setInputCostValue] = useState("");
+  /* const [inputConsumeValue, setInputConsumeValue] = useState("");
+  const [inputCostValue, setInputCostValue] = useState(""); */
 
-  const handleInputConsumeValue = (e) => {
+  /* const handleInputConsumeValue = (e) => {
     const value = e.target.value;
     //const sanitizedValue = value.replace(",", ".");
     const isValid = /^-?\d+(,\d+)?$/.test(value);
@@ -27,7 +27,7 @@ function PreencherDadosMes() {
     if (isValid) {
       setInputCostValue(sanitizedValue);
     }
-  };
+  }; */
 
   return (
     <Main>
@@ -40,8 +40,8 @@ function PreencherDadosMes() {
           <input
             type="number"
             placeholder="Gasto Energético"
-            value={inputConsumeValue}
-            onChange={handleInputConsumeValue}
+         /*    value={inputConsumeValue}
+            onChange={handleInputConsumeValue} */
           ></input>
         </span>
         <span>
@@ -49,8 +49,8 @@ function PreencherDadosMes() {
           <input
             type="number"
             placeholder="Custo Energético"
-            value={inputCostValue}
-            onChange={handleInputCostValue}
+           /*  value={inputCostValue}
+            onChange={handleInputCostValue} */
           ></input>
         </span>
         <Btn variant="3" type="submit">

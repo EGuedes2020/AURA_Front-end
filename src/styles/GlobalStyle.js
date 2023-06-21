@@ -78,6 +78,12 @@ export default createGlobalStyle`
     --font-size: 1.25rem;
     --stroke-height: 1rem;
 
+    // 404 Error
+
+    --font-error-404-title: 3.063rem;
+    --font-error-404-subtitle: 1.25rem;
+    --font-error-404-text: 1rem;
+
     // colors
 
     --transparent: rgba(255, 255, 255, 0);
@@ -93,6 +99,7 @@ export default createGlobalStyle`
     --color-blue-4:#023047;
     --color-green-1:#18CCAC;
     --color-green-2:#07362D;
+    --color-green-3:#1CE4BF;
     --color-danger: #AE0B34;
 
     --color-bg-modal: var(--color-gray-3);
@@ -103,8 +110,9 @@ export default createGlobalStyle`
     --color-text-veredito-checkbox: var(--color-black);
 
     --color-bg-btn-veredito: var(--transparent);
-    --color-text-btn-veredito: var(--color-gray-1);
-    --color-text-btn-veredito-submit: var(--color-blue-1);
+
+    --color-text-btn-modal-close: var(--color-gray-1);
+    --color-text-btn-modal-confirm: var(--color-blue-1);
 
     --color-bg-forms-input: var(--color-gray-3);
     --color-text-forms-input: var(--color-gray-1);

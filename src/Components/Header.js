@@ -12,14 +12,43 @@ import CrossIcon from "../Assets/Icons/Cross_icon";
 import TrashIcon from "../Assets/Icons/Trash_icon";
 
 import { setNavbarState } from "../redux/NavbarStateReducer_Slice";
+import { setIsAuthenticated } from "../redux/LoginStateReducer_Slice";
 
 import { Link } from "react-router-dom";
+
+import axios from "axios";
+
+import {
+  setInstitution,
+  setRole,
+  setWorker_id,
+} from "../redux/LoginStateReducer_Slice";
 
 function Header() {
   const dispatch = useDispatch();
 
+  function getCookie(cookieName) {
+    var cookies = document.cookie.split(";");
+    for (var i = 0; i < cookies.length; i++) {
+      var cookie = cookies[i].trim();
+      if (cookie.startsWith(cookieName + "=")) {
+        return cookie.substring(cookieName.length + 1);
+      }
+    }
+    //return "";
+  }
+
   const isAuthenticated = useSelector((state) => state.Login.isAuthenticated);
-  const LoginRole = useSelector((state) => state.Login.loginRole);
+  const Token = useSelector((state) => state.Login.Token);
+  const Role = useSelector((state) => state.Login.Role);
+
+  useEffect(() => {
+    if (getCookie("Token")) {
+      dispatch(setIsAuthenticated(true));
+    } else {
+      dispatch(setIsAuthenticated(false));
+    }
+  }, [Token, dispatch]);
 
   const [HeaderState, setHeaderState] = useState("");
   const [BackBtn, setBackBtn] = useState(false);
@@ -27,13 +56,30 @@ function Header() {
 
   const location = useLocation().pathname.split("/")[1].toLowerCase();
 
+  const WorkerId = useSelector((state) => state.Login.WorkerId);
+
+  const fetch = async (url) => {
+    return await axios.get(url);
+  };
+
   useEffect(() => {
+    dispatch(setWorker_id(getCookie("worker_id")));
+
+    if (isAuthenticated) {
+      fetch(`https://aura-app.onrender.com/api/workers/${WorkerId}`).then(
+        (res) => {
+          dispatch(setRole(res.data.worker.role));
+          console.log(res.data.worker.role);
+        }
+      );
+    }
+
     setCrossBtn(false);
     setBackBtn(false);
     dispatch(setNavbarState(true));
     switch (location) {
       case "":
-        LoginRole === 1
+        Role === "admin"
           ? setHeaderState("Temporada")
           : setHeaderState("Avisos");
         break;
@@ -109,8 +155,9 @@ function Header() {
         break;
       default:
         setHeaderState("");
+        dispatch(setNavbarState(false));
     }
-  }, [location, LoginRole, dispatch]);
+  }, [location, Role, dispatch]);
 
   const Back = (
     <span onClick={() => window.history.back()}>
@@ -144,7 +191,7 @@ function Header() {
     </HeaderNav>
   );
 
-  return isAuthenticated ? Header : null;
+  return HeaderState === "" ? null : isAuthenticated ? Header : null;
 }
 
 export default Header;

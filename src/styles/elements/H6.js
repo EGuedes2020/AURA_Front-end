@@ -5,7 +5,7 @@ export const H6 = styled.h6`
   font-size: 1.25rem;
   font-weight: var(--semi-bold);
   color: ${(props) =>
-    props.variant === "Sugestoes"
+    props.variant === "black"
       ? "var(--color-black)"
       : props.variant === "veredito"
       ? "var(--color-gray-3)"

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ModalVereditoSugestao = styled.section`
+export const SugestaoModalContainer = styled.section`
   display: grid;
   gap: 1rem;
   grid-template-columns: 1fr;

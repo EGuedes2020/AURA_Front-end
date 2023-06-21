@@ -3,6 +3,9 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import Login from "./Pages/Login";
+import Registo from "./Pages/Registo";
+import RecuperarConta from "./Pages/RecuperarConta";
+import MudarSenha from "./Pages/MudarSenha";
 
 import Temporada from "./Pages/Temporada/Temporada";
 import Dados from "./Pages/Temporada/Dados";
@@ -34,14 +37,9 @@ import GestaoDispositivos from "./Pages/GestaoDispositivos";
 
 import PageNotFound from "./Pages/PageNotFound";
 
-// const Dispositivos = lazy(() => import("./Pages/Dispositivos/Dispositivos"));
-// const Leaderboard = lazy(() => import("./Pages/Leaderboard/Leaderboard"));
-// const Sugestoes = lazy(() => import("./Pages/Sugestoes/Sugestoes"));
-// const Trabalhadores = lazy(() => import("./Pages/Trabalhadores/Trabalhadores"));
-
 const AppRotas = () => {
   const isAuthenticated = useSelector((state) => state.Login.isAuthenticated);
-  const LoginRole = useSelector((state) => state.Login.loginRole);
+  const Role = useSelector((state) => state.Login.Role);
 
   return (
     <Routes>
@@ -50,10 +48,22 @@ const AppRotas = () => {
         element={isAuthenticated ? <Navigate to="/" /> : <Login />}
       ></Route>
       <Route
+        path="/Registo"
+        element={isAuthenticated ? <Navigate to="/" /> : <Registo />}
+      ></Route>
+      <Route
+        path="/RecuperarConta"
+        element={isAuthenticated ? <Navigate to="/" /> : <RecuperarConta />}
+      ></Route>
+      <Route
+        path="/MudarSenha"
+        element={isAuthenticated ? <Navigate to="/" /> : <MudarSenha />}
+      ></Route>
+      <Route
         path="/"
         element={
           isAuthenticated ? (
-            LoginRole === 1 ? (
+            Role === "admin" ? (
               <Temporada />
             ) : (
               <Avisos />
@@ -69,25 +79,73 @@ const AppRotas = () => {
       ></Route>
       <Route
         path="/Dados"
-        element={isAuthenticated ? <Dados /> : <Navigate to="/Login" />}
+        element={
+          isAuthenticated ? (
+            Role === "admin" ? (
+              <Dados />
+            ) : (
+              <Avisos />
+            )
+          ) : (
+            <Navigate to="/Login" />
+          )
+        }
       ></Route>
       <Route
         path="/PreencherDadosMes"
         element={
-          isAuthenticated ? <PreencherDadosMes /> : <Navigate to="/Login" />
+          isAuthenticated ? (
+            Role === "admin" ? (
+              <PreencherDadosMes />
+            ) : (
+              <Avisos />
+            )
+          ) : (
+            <Navigate to="/Login" />
+          )
         }
       ></Route>
       <Route
         path="/Conquistas"
-        element={isAuthenticated ? <Conquistas /> : <Navigate to="/Login" />}
+        element={
+          isAuthenticated ? (
+            Role === "admin" ? (
+              <Conquistas />
+            ) : (
+              <Avisos />
+            )
+          ) : (
+            <Navigate to="/Login" />
+          )
+        }
       ></Route>
       <Route
         path="/Dispositivos"
-        element={isAuthenticated ? <Dispositivos /> : <Navigate to="/Login" />}
+        element={
+          isAuthenticated ? (
+            Role === "admin" ? (
+              <Dispositivos />
+            ) : (
+              <Avisos />
+            )
+          ) : (
+            <Navigate to="/Login" />
+          )
+        }
       ></Route>
       <Route
         path="/AvisosAtivos"
-        element={isAuthenticated ? <AvisosAtivos /> : <Navigate to="/Login" />}
+        element={
+          isAuthenticated ? (
+            Role === "admin" ? (
+              <AvisosAtivos />
+            ) : (
+              <Avisos />
+            )
+          ) : (
+            <Navigate to="/Login" />
+          )
+        }
       ></Route>
       <Route
         path="/Avisos"
@@ -115,16 +173,44 @@ const AppRotas = () => {
       ></Route>
       <Route
         path="/Trabalhadores"
-        element={isAuthenticated ? <Trabalhadores /> : <Navigate to="/Login" />}
+        element={
+          isAuthenticated ? (
+            Role === "admin" ? (
+              <Trabalhadores />
+            ) : (
+              <Avisos />
+            )
+          ) : (
+            <Navigate to="/Login" />
+          )
+        }
       ></Route>
       <Route
         path="/Trabalhador"
-        element={isAuthenticated ? <Trabalhador /> : <Navigate to="/Login" />}
+        element={
+          isAuthenticated ? (
+            Role === "admin" ? (
+              <Trabalhador />
+            ) : (
+              <Avisos />
+            )
+          ) : (
+            <Navigate to="/Login" />
+          )
+        }
       ></Route>
       <Route
         path="/ConvidarTrabalhador"
         element={
-          isAuthenticated ? <ConvidarTrabalhador /> : <Navigate to="/Login" />
+          isAuthenticated ? (
+            Role === "admin" ? (
+              <ConvidarTrabalhador />
+            ) : (
+              <Avisos />
+            )
+          ) : (
+            <Navigate to="/Login" />
+          )
         }
       ></Route>
       <Route
@@ -134,7 +220,15 @@ const AppRotas = () => {
       <Route
         path="/GestaoDispositivos"
         element={
-          isAuthenticated ? <GestaoDispositivos /> : <Navigate to="/Login" />
+          isAuthenticated ? (
+            Role === "admin" ? (
+              <GestaoDispositivos />
+            ) : (
+              <Avisos />
+            )
+          ) : (
+            <Navigate to="/Login" />
+          )
         }
       ></Route>
 

@@ -13,7 +13,54 @@ import PlugIcon from "../Assets/Icons/Plug_icon";
 import CardIcon from "../Assets/Icons/Card_icon";
 import HelpIcon from "../Assets/Icons/Help_icon";
 
+import { useState, useEffect } from "react";
+
+import { useDispatch } from "react-redux";
+
+import {
+  setToken,
+  setIsAuthenticated,
+  setInstitution,
+  setRole,
+  setWorker_id,
+} from "../redux/LoginStateReducer_Slice";
+
 function Definicoes() {
+  const dispatch = useDispatch();
+  const [LogOutState, setLogOutState] = useState(false);
+
+  function getCookie(cookieName) {
+    var cookies = document.cookie.split(";");
+    for (var i = 0; i < cookies.length; i++) {
+      var cookie = cookies[i].trim();
+      if (cookie.startsWith(cookieName + "=")) {
+        return cookie.substring(cookieName.length + 1);
+      }
+    }
+    //return "";
+  }
+
+  function LogOut() {
+    document.cookie = "Token =; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+    document.cookie =
+      "institution_id =; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+    document.cookie = "worker_id =; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+    document.cookie = "role =; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+    dispatch(setToken(false));
+    dispatch(setInstitution(false));
+    dispatch(setRole(false));
+    dispatch(setWorker_id(false));
+    setLogOutState(true);
+  }
+
+  useEffect(() => {
+    if (getCookie("Token")) {
+      dispatch(setIsAuthenticated(true));
+    } else {
+      dispatch(setIsAuthenticated(false));
+    }
+  }, [LogOutState, dispatch]);
+
   return (
     <Main>
       <UserProfileInfo
@@ -24,7 +71,7 @@ function Definicoes() {
         <BtnDefinicoes bgcolor="1">
           <EditIcon /> Editar Perfil
         </BtnDefinicoes>
-        <BtnDefinicoes bgcolor="2">
+        <BtnDefinicoes bgcolor="2" onClick={() => LogOut()}>
           <LogOutIcon /> Terminar Sessão
         </BtnDefinicoes>
       </DoubleDefinicoesBTN>
