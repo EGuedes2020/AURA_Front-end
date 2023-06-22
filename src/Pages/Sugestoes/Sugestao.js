@@ -11,6 +11,7 @@ import { SugestaoModalContainer } from "../../styles/Components/SugestaoModalCon
 import { OverlineDefaultData } from "../../styles/elements/OverlineDefaultData";
 import { Btn } from "../../styles/elements/Button";
 import { BtnVeredito } from "../../styles/elements/ButtonVeredito";
+import { BtnUpdateVeredito } from "../../styles/elements/ButtonUpdateVeredito";
 import {
   FormsModalVeredito,
   DivRadioBox,
@@ -29,9 +30,17 @@ import {
 import AprovadoIcon from "../../Assets/Icons/Aprovado_icon";
 import DesaprovadoIcon from "../../Assets/Icons/Desaprovado_icon";
 
+import { useLocation } from "react-router-dom";
+
+import axios from "axios";
+
+import { setSugestao } from "../../redux/SugestoesStateReducer_Slice";
+
 function Sugestao() {
   const [ModalDisplay, setModalDisplay] = useState(false);
   const dispatch = useDispatch();
+
+  const [UpVote, setUpVote] = useState(false);
 
   const [VereditoAprovado, setVereditoAprovado] = useState("unchecked");
   const [VereditoDesaprovado, setVereditoDesaprovado] = useState("unchecked");
@@ -94,6 +103,25 @@ function Sugestao() {
     setIconDesaprovado("unchecked");
     setVeredito(VereditoState);
   };
+
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const userId = searchParams.get("id");
+
+  const fetch = async (url) => {
+    return await axios.get(url);
+  };
+
+  useEffect(() => {
+    fetch(`https://aura-app.onrender.com/api/suggestions/${userId}`).then(
+      (res) => {
+        dispatch(setSugestao(res.data));
+        console.log(res.data);
+      }
+    );
+  }, []);
+
+  const SugestaoData = useSelector((state) => state.Sugestoes.sugestao);
 
   const Modal = (
     <>
@@ -158,49 +186,109 @@ function Sugestao() {
     </>
   );
 
+  const Pending = (
+    <CardDefaultContainer variant="1">
+      <CardDefaultSub2 spacing="sugestoes">
+        <CardDefault variant="Sub">
+          <Overline textTranform="Default" variant="Default">
+            Votos
+          </Overline>
+          <OverlineDefaultData>
+            {SugestaoData.number_of_votes}
+          </OverlineDefaultData>
+        </CardDefault>
+        <Btn onClick={() => setModalDisplay(true)} variant="1">
+          Veredito
+        </Btn>
+      </CardDefaultSub2>
+    </CardDefaultContainer>
+  );
+
+  const Vote = (
+    <CardDefaultContainer variant="1" spacing="sugestoes">
+      <CardDefaultSub2>
+        <CardDefault variant="Sub">
+          <Overline textTranform="Default" variant="Default">
+            Votos
+          </Overline>
+          <OverlineDefaultData>
+            {SugestaoData.number_of_votes}
+          </OverlineDefaultData>
+        </CardDefault>
+      </CardDefaultSub2>
+    </CardDefaultContainer>
+  );
+
+  const VereditoFinalAdmin = (
+    <>
+      <CardDefaultContainer variant="2" spacing="sugestoes">
+        <CardDefault>
+          <Overline textTranform="Default" variant="Default">
+            Votos
+          </Overline>
+          <OverlineDefaultData>
+            {SugestaoData.number_of_votes}
+          </OverlineDefaultData>
+        </CardDefault>
+        <CardDefault>
+          <Overline textTranform="Default" variant="Default">
+            Veredito
+          </Overline>
+          {SugestaoData.status !== "pending" ? (
+            SugestaoData.status === "approved" ? (
+              <AprovadoIcon />
+            ) : (
+              <DesaprovadoIcon />
+            )
+          ) : null}
+        </CardDefault>
+      </CardDefaultContainer>
+      <BtnUpdateVeredito onClick={() => setModalDisplay(true)}>
+        mudar veredito
+      </BtnUpdateVeredito>
+    </>
+  );
+
+  const VereditoFinalColab = (
+    <CardDefaultContainer variant="2" spacing="sugestoes">
+      <CardDefault>
+        <Overline textTranform="Default" variant="Default">
+          Votos
+        </Overline>
+        <OverlineDefaultData>
+          {SugestaoData.number_of_votes}
+        </OverlineDefaultData>
+      </CardDefault>
+      <CardDefault>
+        <Overline textTranform="Default" variant="Default">
+          Veredito
+        </Overline>
+        {SugestaoData.status !== "pending" ? (
+          SugestaoData.status === "approved" ? (
+            <AprovadoIcon />
+          ) : (
+            <DesaprovadoIcon />
+          )
+        ) : null}
+      </CardDefault>
+    </CardDefaultContainer>
+  );
+
+  const Role = useSelector((state) => state.Login.Role);
+
   return (
     <Main>
       {ModalDisplay ? Modal : null}
-      <Overline variant="Sugestao"> 12/04/2023 </Overline>
-      <H5> Aquisições Sustentáveis </H5>
-      <PCardSugestoes>
-        Aquisições Sustentáveis são uma proposta importante e relevante para
-        garantir que as compras realizadas por organizações, governos e empresas
-        sejam feitas de forma responsável com o meio ambiente e a sociedade. A
-        ideia por trás das aquisições sustentáveis é considerar não apenas o
-        preço do produto ou serviço, mas também seu impacto ambiental e social
-        ao longo de todo o seu ciclo de vida. Dessa forma, são levados em
-        consideração critérios como a eficiência energética, o uso de materiais
-        reciclados, o respeito aos direitos trabalhistas e a responsabilidade
-        social da empresa fornecedora. Ao adotar práticas de aquisições
-        sustentáveis, as organizações e empresas contribuem para a preservação
-        do meio ambiente, redução de emissões de gases de efeito estufa, redução
-        do desperdício e promoção de uma economia mais justa e sustentável. Além
-        disso, as empresas fornecedoras são incentivadas a adotar práticas mais
-        sustentáveis em suas operações, o que pode gerar um impacto positivo em
-        toda a cadeia produtiva. Para implementar aquisições sustentáveis, é
-        necessário estabelecer critérios claros e objetivos, desenvolver
-        mecanismos de monitoramento e avaliação, capacitar os envolvidos no
-        processo de compras e estabelecer parcerias com fornecedores
-        comprometidos com a sustentabilidade. Em resumo, a adoção de práticas de
-        aquisições sustentáveis é uma proposta que contribui para a promoção de
-        um mundo mais justo e sustentável, em que as empresas e organizações se
-        preocupam não apenas com seus resultados financeiros, mas também com o
-        impacto que geram na sociedade e no meio ambiente.
-      </PCardSugestoes>
-      <CardDefaultContainer variant="1">
-        <CardDefaultSub2>
-          <CardDefault variant="Sub">
-            <Overline textTranform="Default" variant="Default">
-              Votos
-            </Overline>
-            <OverlineDefaultData> 23 </OverlineDefaultData>
-          </CardDefault>
-          <Btn onClick={() => setModalDisplay(true)} variant="1">
-            Veredito
-          </Btn>
-        </CardDefaultSub2>
-      </CardDefaultContainer>
+      <Overline variant="Sugestao"></Overline>
+      <H5> {SugestaoData.title} </H5>
+      <PCardSugestoes>{SugestaoData.description}</PCardSugestoes>
+      {Role === "admin"
+        ? SugestaoData.status !== "pending"
+          ? VereditoFinalAdmin
+          : Pending
+        : SugestaoData.status !== "pending"
+        ? VereditoFinalColab
+        : Vote}
     </Main>
   );
 }

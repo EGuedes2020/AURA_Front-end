@@ -5,43 +5,52 @@ import { Btn } from "../../styles/elements/Button";
 
 import React, { useState } from "react";
 
+import { useLocation } from "react-router-dom";
+import axios from "axios";
+
 function PreencherDadosMes() {
-  /* const [inputConsumeValue, setInputConsumeValue] = useState("");
-  const [inputCostValue, setInputCostValue] = useState(""); */
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const Id = searchParams.get("id");
+  const mes = searchParams.get("mes");
 
-  /* const handleInputConsumeValue = (e) => {
-    const value = e.target.value;
-    //const sanitizedValue = value.replace(",", ".");
-    const isValid = /^-?\d+(,\d+)?$/.test(value);
+  const [cost_energy, setCost_energy] = useState("");
+  const [energy_consumed, setEnergy_consumed] = useState("");
 
-    if (isValid) {
-      setInputConsumeValue(value);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.put(
+        `https://aura-app.onrender.com/api/energy/${Id}/`,
+        { cost_energy, energy_consumed }
+      );
+      console.log(response.data);
+      if (response.data) {
+      }
+      // Handle response as needed
+    } catch (error) {
+      console.error(error);
+      // Handle error as needed
     }
+    window.history.back();
   };
-
-  const handleInputCostValue = (e) => {
-    const value = e.target.value;
-    const sanitizedValue = value.replace(",", ".");
-    const isValid = /^-?\d*(\.\d*)?$/.test(sanitizedValue);
-
-    if (isValid) {
-      setInputCostValue(sanitizedValue);
-    }
-  }; */
 
   return (
     <Main>
       <H6 variant="Temporada" align="center">
-        Abril
+        {mes}
       </H6>
-      <FormsPreencherDadosMes variant="PreencherDadosMes">
+      <FormsPreencherDadosMes
+        method="PUT"
+        variant="PreencherDadosMes"
+        onSubmit={handleSubmit}
+      >
         <span>
           <span> kWh </span>
           <input
             type="number"
             placeholder="Gasto Energético"
-         /*    value={inputConsumeValue}
-            onChange={handleInputConsumeValue} */
+            onChange={(e) => setEnergy_consumed(e.target.value)}
           ></input>
         </span>
         <span>
@@ -49,8 +58,7 @@ function PreencherDadosMes() {
           <input
             type="number"
             placeholder="Custo Energético"
-           /*  value={inputCostValue}
-            onChange={handleInputCostValue} */
+            onChange={(e) => setCost_energy(e.target.value)}
           ></input>
         </span>
         <Btn variant="3" type="submit">

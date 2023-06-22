@@ -9,9 +9,54 @@ import {
   ListDispositivos,
 } from "../../styles/Components/ListDispositivos";
 
-import RowListDispositivos from "../../Components/RowListDispositivos";
+import RowListDispositivosAtivos from "../../Components/RowListDispositivosAtivos";
+
+import { useEffect } from "react";
+import axios from "axios";
+
+import { useSelector, useDispatch } from "react-redux";
+
+import {
+  setAvisosAtivos,
+  setTotalAvisosAtivos,
+} from "../../redux/AvisosAtivosStateReducer_Slice";
 
 function AvisosAtivos() {
+  const dispatch = useDispatch();
+
+  const fetch = async (url) => {
+    return await axios.get(url);
+  };
+
+  const InstitutionId = useSelector((state) => state.Login.Institution_id);
+
+  useEffect(() => {
+    fetch(
+      `https://aura-app.onrender.com/api/active_warnings/institution/${InstitutionId}`
+    ).then((res) => {
+      dispatch(setAvisosAtivos(res.data));
+      dispatch(setTotalAvisosAtivos(res.data.length));
+      //console.log(res.data);
+      //console.log(res.data.length);
+    });
+  }, []);
+
+  const DispositivosAtivos = useSelector(
+    (state) => state.AvisosAtivos.avisosAtivos
+  ).map((item, index) => (
+    <RowListDispositivosAtivos
+      detalhes={"true"}
+      key={index}
+      divisao={item.room}
+      tempoAviso={item.warning_time}
+      numLigados={item.devices_on}
+    />
+  ));
+
+  const TotalAvisos = useSelector(
+    (state) => state.AvisosAtivos.totalAvisosAtivos
+  );
+
   return (
     <Main>
       <CardDefaultContainer variant="1">
@@ -20,7 +65,7 @@ function AvisosAtivos() {
             <Overline textTranform="Default" variant="Default">
               Avisos Ativos
             </Overline>
-            <OverlineDefaultData> 621 </OverlineDefaultData>
+            <OverlineDefaultData> {TotalAvisos} </OverlineDefaultData>
           </CardDefault>
         </CardDefaultSub2>
       </CardDefaultContainer>
@@ -30,27 +75,7 @@ function AvisosAtivos() {
           <span>Tempo Aviso</span>
           <span>Nº Ligados</span>
         </ListDispositivos>
-        <RowListDispositivos
-          detalhes="true"
-          divisao="Cozinha"
-          piso="1"
-          dispositivos="34"
-          total_avisos="2"
-        ></RowListDispositivos>
-        <RowListDispositivos
-          detalhes="true"
-          divisao="Cozinha"
-          piso="1"
-          dispositivos="34"
-          total_avisos="2"
-        ></RowListDispositivos>
-        <RowListDispositivos
-          detalhes="true"
-          divisao="Cozinha"
-          piso="1"
-          dispositivos="34"
-          total_avisos="2"
-        ></RowListDispositivos>
+        {DispositivosAtivos}
       </ListDispositivosContainer>
     </Main>
   );

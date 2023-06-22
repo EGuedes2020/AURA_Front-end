@@ -108,7 +108,7 @@ function Login() {
       <img src={LoginAssetTopRight} alt="Login_Asset_Top_Right" />
       <LoginContainer>
         <img src={Logo} alt="Logo_AURA" />
-        <LoginForms onSubmit={handleSubmit}>
+        <LoginForms method="POST" onSubmit={handleSubmit}>
           <input
             type="email"
             placeholder="Email"

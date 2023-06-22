@@ -7,19 +7,48 @@ import { CardDefaultContainer } from "../../styles/Components/S_CardDefaultConta
 
 import UserProfileInfo from "../../Components/UserProfileInfo";
 
+import { useLocation } from "react-router-dom";
+
+import { useEffect } from "react";
+import axios from "axios";
+
+import { useSelector, useDispatch } from "react-redux";
+
+import { setTrabalhador } from "../../redux/TrabalhadoresStateReducer_Slice";
+
 function Trabalhador() {
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const userId = searchParams.get("id");
+
+  const dispatch = useDispatch();
+
+  const fetch = async (url) => {
+    return await axios.get(url);
+  };
+
+  useEffect(() => {
+    fetch(`https://aura-app.onrender.com/api/workers/${userId}`).then((res) => {
+      dispatch(setTrabalhador(res.data.worker));
+      console.log(res.data.worker);
+    });
+  }, []);
+
+  const Trabalhador = useSelector((state) => state.Trabalhadores.trabalhador);
+
   return (
     <Main>
       <UserProfileInfo
-        name="David Silva"
-        email="davidsilva@gmail.com"
+        name={Trabalhador.name}
+        email={Trabalhador.email}
+        img={Trabalhador.avatar}
       ></UserProfileInfo>
       <CardDefaultSub2 variant="1">
         <CardDefault variant="Sub">
           <Overline textTranform="Default" variant="Default">
-            Nome completo
+            Nome
           </Overline>
-          <OverlineDefaultData>David Santos da Cruz Silva</OverlineDefaultData>
+          <OverlineDefaultData>{Trabalhador.name}</OverlineDefaultData>
         </CardDefault>
       </CardDefaultSub2>
       <CardDefaultContainer variant="2">
@@ -27,13 +56,16 @@ function Trabalhador() {
           <Overline textTranform="Default" variant="Default">
             Número de telemóvel
           </Overline>
-          <OverlineDefaultData> 911 000 111 </OverlineDefaultData>
+          <OverlineDefaultData>
+            {" "}
+            {Trabalhador.phone_number}{" "}
+          </OverlineDefaultData>
         </CardDefault>
         <CardDefault>
           <Overline textTranform="Default" variant="Default">
             data de nascimento
           </Overline>
-          <OverlineDefaultData>12/04/1990</OverlineDefaultData>
+          <OverlineDefaultData>{Trabalhador.birth_date}</OverlineDefaultData>
         </CardDefault>
       </CardDefaultContainer>
       <CardDefaultSub2 variant="1">
@@ -41,9 +73,7 @@ function Trabalhador() {
           <Overline textTranform="Default" variant="Default">
             Morada
           </Overline>
-          <OverlineDefaultData>
-            Rua do Carmo, 1200-092 Lisboa, Portugal.
-          </OverlineDefaultData>
+          <OverlineDefaultData>{Trabalhador.address}</OverlineDefaultData>
         </CardDefault>
       </CardDefaultSub2>
     </Main>

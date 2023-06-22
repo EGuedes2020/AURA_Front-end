@@ -1,5 +1,4 @@
 import { HeaderNav } from "../styles/Components/S_Header";
-import ProfilePic from "../Assets/Img/Profile.png";
 
 import { H5 } from "../styles/elements/H5";
 import { useLocation } from "react-router-dom";
@@ -25,7 +24,10 @@ import {
   setEmail,
   setProfilePic,
   setUserData,
+  setInstitution,
 } from "../redux/LoginStateReducer_Slice";
+
+import { setPesquisaTrabalhadores } from "../redux/TrabalhadoresStateReducer_Slice";
 
 function Header() {
   const dispatch = useDispatch();
@@ -69,6 +71,7 @@ function Header() {
 
   useEffect(() => {
     dispatch(setWorker_id(getCookie("worker_id")));
+    dispatch(setInstitution(getCookie("institution_id")));
 
     if (isAuthenticated) {
       /* if (!UserData) { */
@@ -87,6 +90,7 @@ function Header() {
             dispatch(setEmail(res.data.worker.email));
             dispatch(setProfilePic(res.data.worker.avatar));
             console.log("fetch name email and profile pic");
+            dispatch(setInstitution(getCookie("institution_id")));
           }
         );
       }
@@ -155,6 +159,7 @@ function Header() {
         break;
       case "trabalhadores":
         setHeaderState("Trabalhadores");
+        dispatch(setPesquisaTrabalhadores(""));
         break;
       case "trabalhador":
         setHeaderState("Trabalhador");
@@ -194,6 +199,37 @@ function Header() {
     </span>
   );
 
+  const SugestaoData = useSelector((state) => state.Sugestoes.sugestao);
+
+  const Apagar = () => {
+    switch (location) {
+      case "sugestao":
+        try {
+          const fetchData = async (url) => {
+            return await axios.delete(url);
+          };
+
+          console.log("id=" + SugestaoData.id);
+
+          fetchData(
+            `https://aura-app.onrender.com/api/suggestions/${SugestaoData.id}`
+          );
+          window.history.back();
+        } catch (error) {
+          console.error(error);
+        }
+
+        break;
+      default:
+    }
+  };
+
+  const Delete = (
+    <span onClick={() => Apagar()}>
+      <TrashIcon />
+    </span>
+  );
+
   const Header = (
     <HeaderNav variant={BackBtn ? "back" : CrossBtn ? "back" : ""}>
       {BackBtn ? Back : null}
@@ -201,9 +237,9 @@ function Header() {
       <H5>{HeaderState}</H5>
       <span>
         {location === "sugestao" ? (
-          <TrashIcon />
+          Delete
         ) : location === "trabalhador" ? (
-          <TrashIcon />
+          Delete
         ) : location === "definicoes" ? null : location ===
           "gestaodispositivos" ? null : (
           <Link to="/Definicoes">

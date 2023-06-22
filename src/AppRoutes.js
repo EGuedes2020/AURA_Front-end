@@ -107,17 +107,7 @@ const AppRotas = () => {
       ></Route>
       <Route
         path="/Conquistas"
-        element={
-          isAuthenticated ? (
-            Role === "admin" ? (
-              <Conquistas />
-            ) : (
-              <Avisos />
-            )
-          ) : (
-            <Navigate to="/Login" />
-          )
-        }
+        element={isAuthenticated ? <Conquistas /> : <Navigate to="/Login" />}
       ></Route>
       <Route
         path="/Dispositivos"

@@ -14,7 +14,7 @@ export const BadgesSectionStyles = styled.section`
     height: 100%;
     aspect-ratio: 4/4;
     object-fit: contain;
-    filter: ${(props) =>
-      props.variant === "instituicao" ? "" : "grayscale(100%)"};
+    /* filter: ${(props) =>
+      props.variant === "instituicao" ? "" : "grayscale(100%)"}; */
   }
 `;

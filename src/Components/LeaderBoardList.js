@@ -1,29 +1,25 @@
 import { LeaderBoardListContainer } from "../styles/Components/LeaderBoardListContainer";
 
-import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-import ProfilePic from "../Assets/Img/Profile.png";
+import LeaderBoardSingleLine from "./LeaderBoardSingleLine";
 
 const LeaderBoardList = () => {
+  const Instituicoes = useSelector((state) => state.Instituicoes.instituicoes);
+
+  const InstituicoesList = Instituicoes.slice(3).map((item, index) => (
+    <LeaderBoardSingleLine
+      key={index}
+      division={index + 4}
+      id={item.id}
+      profilePic={item.avatar}
+      name={item.name}
+      score={item.Score}
+    />
+  ));
+
   return (
-    <LeaderBoardListContainer>
-      <span>4º</span>
-      <Link to="/Instituicao">
-        <img src={ProfilePic} alt="fotografia_de_utilizador" />
-        <div>
-          <p>Santa Casa da Misericórdia</p>
-          <span>3400</span>
-        </div>
-      </Link>
-      <span>5º</span>
-      <Link to="/Instituicao">
-        <img src={ProfilePic} alt="fotografia_de_utilizador" />
-        <div>
-          <p>Santa Casa da Misericórdia</p>
-          <span>3400</span>
-        </div>
-      </Link>
-    </LeaderBoardListContainer>
+    <LeaderBoardListContainer>{InstituicoesList}</LeaderBoardListContainer>
   );
 };
 

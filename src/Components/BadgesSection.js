@@ -35,7 +35,11 @@ import Sugestao3 from "../Assets/Badges/Sugestoes_3.svg";
 import Sugestao5 from "../Assets/Badges/Sugestoes_5.svg";
 
 import { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+
+import axios from "axios";
+
+import { setBadges } from "../redux/ConquistasStateReducer_Slice";
 
 const BadgesSection = (props) => {
   const [ModalDisplay, setModalDisplay] = useState(false);
@@ -82,6 +86,31 @@ const BadgesSection = (props) => {
       </BadgesModalContainer>
     </>
   );
+
+  const fetch = async (url) => {
+    return await axios.get(url);
+  };
+
+  const InstitutionId = useSelector((state) => state.Login.Institution_id);
+
+  const Badges = useSelector((state) => state.Conquistas.badges);
+
+  useEffect(() => {
+    fetch(
+      `https://aura-app.onrender.com/api/institutions/${InstitutionId}/badges`
+    ).then((res) => {
+      dispatch(setBadges(res.data));
+      console.log(res.data);
+    });
+  }, [InstitutionId]);
+
+  const BadgesStatus = Badges.map((item, index) => {
+    return item.id;
+  });
+
+  const BadgeStatus = (Badge) => {
+    return BadgesStatus === Badge ? "achieved" : null;
+  };
 
   const BadgeSelect = (badge) => {
     switch (badge) {

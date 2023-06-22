@@ -10,12 +10,12 @@ export const ListDispositivosContainer = styled.section`
 export const ListDispositivos = styled.section`
   display: grid;
   gap: var(--main-spacing);
-  grid-template-columns: minmax(auto, 5rem) 1fr 1fr;
+  grid-template-columns: minmax(auto, 7rem) 1fr 1fr;
   background-color: ${(props) =>
     props.variant === "Header"
       ? "var(--color-bg-DispositivosList-Header)"
       : "var(--color-bg-DispositivosList)"};
-  padding: 0.5rem 0.375rem 0.5rem 1rem;
+  padding: 0.7rem 0.375rem 0.7rem 1rem;
   align-items: center;
 
   font-family: var(--readex-pro);

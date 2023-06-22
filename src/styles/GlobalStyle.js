@@ -43,7 +43,7 @@ export default createGlobalStyle`
     
     --p-card-sugestoes-size: 0.875rem;
     --p-card-sugestoes-line-height: 1.5rem;
-    --p-card-sugestoes-visible-lines: 6;
+    --p-card-sugestoes-visible-lines: 3;
 
     --font-votes-sugestoes: 1rem;
     --font-votes-span-sugestoes: 0.75rem;

@@ -13,7 +13,7 @@ const MesDadosContainer = (props) => {
   const [ExistData, setExistData] = useState(false);
 
   useEffect(() => {
-    if (props.energia !== "" && props.despesa !== "") {
+    if (props.energia !== null && props.despesa !== null) {
       setExistData(true);
     } else {
       setExistData(false);
@@ -47,7 +47,7 @@ const MesDadosContainer = (props) => {
     <>
       <CardDefaultContainer variant="1">
         <CardDefault>
-          <Link to="/PreencherDadosMes">
+          <Link to={`/PreencherDadosMes?id=${props.id}&mes=${props.mes}`}>
             <Btn variant="3"> Preencher </Btn>
           </Link>
         </CardDefault>

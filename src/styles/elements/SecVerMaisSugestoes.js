@@ -5,38 +5,41 @@ export const SecVerMaisSugestoes = styled.div`
   font-size: var(--font-votes-sugestoes);
   font-weight: var(--bold);
   color: ${(props) =>
-    props.variant === "veredito"
-      ? "var(--color-links-veredito)"
-      : "var(--color-links)"};
+    props.status === "pending"
+      ? "var(--color-links)"
+      : "var(--color-links-veredito)"};
   justify-self: end;
-  border-bottom: ${(props) =>
-    props.variant === "veredito"
-      ? "2px solid var(--color-links-veredito)"
-      : "2px solid var(--color-links)"};
   cursor: pointer;
 
   width: max-content;
   white-space: nowrap;
 
+  a {
+    border-bottom: ${(props) =>
+      props.status === "pending"
+        ? "2px solid var(--color-links)"
+        : "2px solid var(--color-links-veredito)"};
+  }
+
   a:link {
     color: ${(props) =>
-      props.variant === "veredito"
-        ? "var(--color-links-veredito)"
-        : "var(--color-links)"};
+      props.status === "pending"
+        ? "var(--color-links)"
+        : "var(--color-links-veredito)"};
   }
 
   a:visited {
     color: ${(props) =>
-      props.variant === "veredito"
-        ? "var(--color-links-veredito)"
-        : "var(--color-links)"};
+      props.status === "pending"
+        ? "var(--color-links)"
+        : "var(--color-links-veredito)"};
   }
 
   a:active {
     color: ${(props) =>
-      props.variant === "veredito"
-        ? "var(--color-links-veredito)"
-        : "var(--color-links)"};
+      props.status === "pending"
+        ? "var(--color-links)"
+        : "var(--color-links-veredito)"};
     //background-color: --color-links;
     //-webkit-tap-highlight-color: transparent;
   }

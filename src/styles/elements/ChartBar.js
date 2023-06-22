@@ -1,9 +1,9 @@
 import { ChartBarStyles } from "../Components/S_ChartBar";
 
-const ChartBar = () => {
+const ChartBar = (props) => {
   return (
     <>
-      <ChartBarStyles></ChartBarStyles>
+      <ChartBarStyles percentage={props.barra}></ChartBarStyles>
     </>
   );
 };

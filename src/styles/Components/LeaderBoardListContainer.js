@@ -16,7 +16,7 @@ export const LeaderBoardListContainer = styled.section`
     color: var(--color-span-leaderboard-list-numbers);
   }
 
-  a:nth-child(2) {
+  a:nth-child() {
     background-color: var(--color-green-1);
     width: 100%;
     img {
@@ -49,6 +49,8 @@ export const LeaderBoardListContainer = styled.section`
       border: 4px solid var(--color-gray-3);
       border-radius: 100%;
       height: 3.8rem;
+      width: 3.8rem;
+      object-fit: cover;
     }
 
     div {

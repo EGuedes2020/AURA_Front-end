@@ -53,7 +53,7 @@ function Definicoes() {
     dispatch(setToken(false));
     dispatch(setInstitution(false));
     dispatch(setRole(false));
-    dispatch(setWorker_id(false));
+    dispatch(setWorker_id(0));
     dispatch(setUserData(false));
 
     dispatch(setName(""));
@@ -74,6 +74,8 @@ function Definicoes() {
   const Email = useSelector((state) => state.Login.Email);
   const Img = useSelector((state) => state.Login.ProfilePic);
 
+  const Role = useSelector((state) => state.Login.Role);
+
   return (
     <Main>
       <UserProfileInfo img={Img} name={Name} email={Email}></UserProfileInfo>
@@ -85,18 +87,25 @@ function Definicoes() {
           <LogOutIcon /> Terminar Sessão
         </BtnDefinicoes>
       </DoubleDefinicoesBTN>
-      <H6> Instituição </H6>
-      <Link to="/GestaoDispositivos">
-        <BtnDefinicoes bgcolor="4">
-          <PlugIcon /> Gestão de Dispositivos
+
+      {Role === "admin" ? (
+        <>
+          <H6> Instituição </H6>
+          <Link to="/GestaoDispositivos">
+            <BtnDefinicoes bgcolor="4">
+              <PlugIcon /> Gestão de Dispositivos
+            </BtnDefinicoes>
+          </Link>
+          <BtnDefinicoes bgcolor="4">
+            <CardIcon /> Compras e Subscrições
+          </BtnDefinicoes>
+        </>
+      ) : null}
+      <Link to="/*">
+        <BtnDefinicoes bgcolor="3" marginTop={true}>
+          <HelpIcon /> Ajuda e Tutoriais
         </BtnDefinicoes>
       </Link>
-      <BtnDefinicoes bgcolor="4">
-        <CardIcon /> Compras e Subscrições
-      </BtnDefinicoes>
-      <BtnDefinicoes bgcolor="3" marginTop={true}>
-        <HelpIcon /> Ajuda e Tutoriais
-      </BtnDefinicoes>
     </Main>
   );
 }

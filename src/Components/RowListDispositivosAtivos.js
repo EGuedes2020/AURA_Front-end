@@ -1,16 +1,16 @@
 import { ListDispositivos } from "../styles/Components/ListDispositivos";
 
-function RowListDispositivos(props) {
+function RowListDispositivosAtivos(props) {
   return (
     <ListDispositivos>
       <span>{props.divisao}</span>
       <p>
-        {props.dispositivos}
+        {props.tempoAviso}
         <span>{props.detalhes === "true" ? "min" : ""}</span>
       </p>
-      <p>{props.total_avisos}</p>
+      <p>{props.numLigados}</p>
     </ListDispositivos>
   );
 }
 
-export default RowListDispositivos;
+export default RowListDispositivosAtivos;

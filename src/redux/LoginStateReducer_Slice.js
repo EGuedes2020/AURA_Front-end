@@ -7,7 +7,7 @@ export const LoginStateReducer_Slice = createSlice({
     Token: false,
     Institution_id: false,
     Role: false,
-    WorkerId: false,
+    WorkerId: 0,
     Name: "",
     Email: "",
     ProfilePic: "",

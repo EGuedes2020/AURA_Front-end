@@ -5,9 +5,9 @@ export const SecVotosSugestoes = styled.div`
   font-size: var(--font-votes-sugestoes);
   font-weight: var(--bold);
   color: ${(props) =>
-    props.variant === "veredito"
-      ? "var(--color-votes-sugestoes-veredito)"
-      : "var(--color-votes-sugestoes)"};
+    props.status === "pending"
+      ? "var(--color-votes-sugestoes)"
+      : "var(--color-votes-sugestoes-veredito)"};
 
   width: min-content;
   white-space: nowrap;
@@ -16,8 +16,8 @@ export const SecVotosSugestoes = styled.div`
     font-size: var(--font-votes-span-sugestoes);
     font-weight: var(--regular);
     color: ${(props) =>
-      props.variant === "veredito"
-        ? "var(--color-span-card-sugestoes-veredito)"
-        : "var(--color-span-card-sugestoes)"};
+      props.status === "pending"
+        ? "var(--color-span-card-sugestoes)"
+        : "var(--color-span-card-sugestoes-veredito)"};
   }
 `;

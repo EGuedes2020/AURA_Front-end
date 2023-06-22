@@ -6,7 +6,8 @@ export const ChartBarStyles = styled.section`
   grid-template-columns: 1fr;
   width: 100%;
   max-width: 10rem;
-  height: 100%;
+  min-height: ${(props) => props.percentage}%;
+  height: ${(props) => props.percentage}%;
   justify-self: center;
   align-self: end;
   background-color: var(--color-chartBar);

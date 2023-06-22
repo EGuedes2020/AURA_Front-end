@@ -12,7 +12,7 @@ const InstitutionProfileInfo = (props) => {
       <div>
         <LeftCrown />
         <RightCrown />
-        <img src={ProfilePic} alt="fotografia_de_utilizador" />
+        <img src={props.ProfilePic} alt="fotografia_de_utilizador" />
       </div>
       <H6 align="center"> {props.name} </H6>
       <span>{props.score}</span>

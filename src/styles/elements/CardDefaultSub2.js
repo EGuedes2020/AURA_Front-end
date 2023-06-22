@@ -8,6 +8,7 @@ export const CardDefaultSub2 = styled.article`
   background-color: var(--color-card-default);
   border-radius: var(--border-card);
   padding: 1rem;
+  margin-top: ${(props) => (props.spacing === "sugestoes" ? "4rem" : "0")};
 
   button {
     justify-self: end;

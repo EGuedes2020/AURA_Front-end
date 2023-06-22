@@ -77,24 +77,29 @@ export const LeaderBoardPodium = styled.section`
         }
       }
 
-      img {
-        height: auto;
-        max-height: var(--profile-pic-size);
-        border-radius: 100%;
-        border: 2px solid var(--color-bg-blue);
-        //object-fit: contain;
-        margin-top: 0;
+      a {
+        justify-self: center;
+        img {
+          height: var(--profile-pic-size);
+          width: var(--profile-pic-size);
+          border-radius: 100%;
+          border: 2px solid var(--color-bg-blue);
+          object-fit: cover;
+          margin-top: 0;
+        }
       }
     }
-
-    img {
-      margin-top: 0.6rem;
+    a {
       justify-self: center;
-      height: auto;
-      max-height: calc(var(--profile-pic-size) * 0.8);
-      border-radius: 100%;
-      border: 2px solid var(--color-bg-blue);
-      //object-fit: contain;
+      img {
+        margin-top: 0.6rem;
+        justify-self: center;
+        height: calc(var(--profile-pic-size) * 0.8);
+        width: calc(var(--profile-pic-size) * 0.8);
+        border-radius: 100%;
+        border: 2px solid var(--color-bg-blue);
+        object-fit: cover;
+      }
     }
 
     span {

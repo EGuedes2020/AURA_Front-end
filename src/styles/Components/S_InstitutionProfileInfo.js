@@ -43,11 +43,12 @@ export const InstitutionProfileInfoStyles = styled.section`
   }
 
   img {
-    height: auto;
-    max-height: var(--profile-pic-size);
+    height: var(--profile-pic-size);
+    width: var(--profile-pic-size);
     border-radius: 100%;
     margin-bottom: var(--main-spacing);
     border: 2px solid var(--color-bg-blue);
+    object-fit: cover;
   }
 
   span {

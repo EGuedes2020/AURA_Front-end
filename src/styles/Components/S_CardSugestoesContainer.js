@@ -6,9 +6,9 @@ export const CardSugestoesContainer = styled.section`
   grid-template-columns: 1fr;
 
   background-color: ${(props) =>
-    props.variant === "veredito"
-      ? "var(--color-card-sugestoes-veredito)"
-      : "var(--color-card-sugestoes)"};
+    props.status === "pending"
+      ? "var(--color-card-sugestoes)"
+      : "var(--color-card-sugestoes-veredito)"};
   border-radius: var(--border-card);
   padding: var(--main-spacing);
 `;
