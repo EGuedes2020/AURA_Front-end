@@ -27,9 +27,10 @@ export const HeaderNav = styled.header`
 
     img {
       height: var(--icon-profile-header);
-      width: auto;
+      width: var(--icon-profile-header);
       border-radius: var(--border-total);
       cursor: pointer;
+      object-fit: cover;
     }
   }
 `;

@@ -5,7 +5,7 @@ import ProfilePic from "../Assets/Img/Profile.png";
 const UserProfileInfo = (props) => {
   return (
     <UserProfileInfoStyles>
-      <img src={ProfilePic} alt="fotografia_de_utilizador" />
+      <img src={props.img} alt="fotografia_de_utilizador" />
       <H6 align="center"> {props.name} </H6>
       <span>{props.email}</span>
     </UserProfileInfoStyles>

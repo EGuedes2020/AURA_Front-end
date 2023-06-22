@@ -15,7 +15,7 @@ import HelpIcon from "../Assets/Icons/Help_icon";
 
 import { useState, useEffect } from "react";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import {
   setToken,
@@ -23,6 +23,10 @@ import {
   setInstitution,
   setRole,
   setWorker_id,
+  setName,
+  setEmail,
+  setProfilePic,
+  setUserData,
 } from "../redux/LoginStateReducer_Slice";
 
 function Definicoes() {
@@ -50,6 +54,11 @@ function Definicoes() {
     dispatch(setInstitution(false));
     dispatch(setRole(false));
     dispatch(setWorker_id(false));
+    dispatch(setUserData(false));
+
+    dispatch(setName(""));
+    dispatch(setEmail(""));
+    dispatch(setProfilePic(""));
     setLogOutState(true);
   }
 
@@ -61,12 +70,13 @@ function Definicoes() {
     }
   }, [LogOutState, dispatch]);
 
+  const Name = useSelector((state) => state.Login.Name);
+  const Email = useSelector((state) => state.Login.Email);
+  const Img = useSelector((state) => state.Login.ProfilePic);
+
   return (
     <Main>
-      <UserProfileInfo
-        name="David Silva"
-        email="davidsilva@gmail.com"
-      ></UserProfileInfo>
+      <UserProfileInfo img={Img} name={Name} email={Email}></UserProfileInfo>
       <DoubleDefinicoesBTN btn="2">
         <BtnDefinicoes bgcolor="1">
           <EditIcon /> Editar Perfil

@@ -10,9 +10,11 @@ export const UserProfileInfoStyles = styled.section`
 
   img {
     height: var(--profile-pic-size);
+    width: var(--profile-pic-size);
     justify-self: center;
     border-radius: 100%;
     margin-bottom: var(--main-spacing);
+    object-fit: cover;
   }
 
   span {

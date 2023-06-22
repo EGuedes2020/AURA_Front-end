@@ -19,9 +19,12 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 import {
-  setInstitution,
   setRole,
   setWorker_id,
+  setName,
+  setEmail,
+  setProfilePic,
+  setUserData,
 } from "../redux/LoginStateReducer_Slice";
 
 function Header() {
@@ -62,18 +65,38 @@ function Header() {
     return await axios.get(url);
   };
 
+  const UserData = useSelector((state) => state.Login.UserData);
+
   useEffect(() => {
     dispatch(setWorker_id(getCookie("worker_id")));
 
     if (isAuthenticated) {
+      /* if (!UserData) { */
       fetch(`https://aura-app.onrender.com/api/workers/${WorkerId}`).then(
         (res) => {
           dispatch(setRole(res.data.worker.role));
           console.log(res.data.worker.role);
         }
       );
-    }
+      /* } */
 
+      if (!UserData) {
+        fetch(`https://aura-app.onrender.com/api/workers/${WorkerId}`).then(
+          (res) => {
+            dispatch(setName(res.data.worker.name));
+            dispatch(setEmail(res.data.worker.email));
+            dispatch(setProfilePic(res.data.worker.avatar));
+            console.log("fetch name email and profile pic");
+          }
+        );
+      }
+      dispatch(setUserData(true));
+    }
+  }, [location, dispatch]);
+
+  const Img = useSelector((state) => state.Login.ProfilePic);
+
+  useEffect(() => {
     setCrossBtn(false);
     setBackBtn(false);
     dispatch(setNavbarState(true));
@@ -184,7 +207,7 @@ function Header() {
         ) : location === "definicoes" ? null : location ===
           "gestaodispositivos" ? null : (
           <Link to="/Definicoes">
-            <img src={ProfilePic} alt="fotografia_de_utilizador" />
+            <img src={Img} alt="fotografia_de_utilizador" />
           </Link>
         )}
       </span>

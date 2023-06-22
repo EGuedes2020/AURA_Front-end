@@ -23,7 +23,6 @@ import NoVisionIcon from "../Assets/Icons/NoVision_icon.svg";
 import {
   setToken,
   setInstitution,
-  setRole,
   setWorker_id,
 } from "../redux/LoginStateReducer_Slice";
 
@@ -92,9 +91,10 @@ function Login() {
           ";";
         document.cookie =
           "worker_id=" + response.data.worker_id + "; expires=" + expires + ";";
-        dispatch(setRole(getCookie("Role")));
+
         dispatch(setToken(getCookie("Token")));
         dispatch(setInstitution(getCookie("Institution_id")));
+        dispatch(setWorker_id(getCookie("worker_id")));
       }
       // Handle response as needed
     } catch (error) {
