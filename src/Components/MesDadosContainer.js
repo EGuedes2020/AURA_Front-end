@@ -13,7 +13,7 @@ const MesDadosContainer = (props) => {
   const [ExistData, setExistData] = useState(false);
 
   useEffect(() => {
-    if (props.energia !== null && props.despesa !== null) {
+    if (props.energia !== 0 && props.despesa !== 0) {
       setExistData(true);
     } else {
       setExistData(false);
